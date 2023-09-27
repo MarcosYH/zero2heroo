@@ -654,7 +654,7 @@ ol[type="1"] > li:not(:last-child) {
   text-transform: uppercase;
   font-family: "Barlow", sans-serif;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #d7d7d6;
 }
 .tags_list a:hover {
   -webkit-transform: translate(-1px, -1px);
@@ -1839,10 +1839,10 @@ blockquote p {
 
 .hero_banner.style_2 {
   overflow: hidden;
-  padding: 152px 0 160px;
+  padding: 50px 0 160px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #ffc107;
+  background-color: #ffffff;
   background-position: center center;
 }
 .hero_banner.style_2 .banner_big_title {
