@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="row align-items-center">
               <div className="col col-lg-2 col-5">
                 <div className="site_logo">
-                  <Link className="site_link" to="index.html">
+                  <Link className="site_link" to="/">
                     <img src="assets/images/logo/logoemes1.svg" alt="logo" />
                   </Link>
                 </div>
