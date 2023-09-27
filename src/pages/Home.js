@@ -26,10 +26,10 @@ export default function Home() {
                     Testez vos connaissances en sécurité Web avec nos
                     environnements de test. Apprenez, appliquez et testez vos
                     connaissances en suivant nos cours en securité pour être un
-                    héro du domaine.{" "}
+                    héro du domaine. 
                   </p>
                   <p>
-                    {" "}
+                  
                     Vous aurez à travailler dans des laboratoires
                     d'environnements virtuels sur des technologies telles que :
                   </p>
@@ -218,7 +218,7 @@ export default function Home() {
                   </div>
                   <div className="col col-md-6 d-none d-lg-flex justify-content-end">
                     <div className="btn_wrap p-0">
-                      <Link className="btn border_dark" to="course.html">
+                      <Link className="btn border_dark" to="/course">
                         <span>
                           <small>Explorer les cours</small>
                           <small>Explorer les cours</small>
@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="col col-lg-4">
                   <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="course_details.html">
+                      <Link to="/course">
                         <img
                           src="assets/images/course/course_image_4.jpg"
                           alt="course_image_4"
@@ -258,7 +258,7 @@ export default function Home() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Introduction a la cyber securité
                         </Link>
                       </h3>
@@ -268,7 +268,7 @@ export default function Home() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html">
+                      <Link to="/course">
                         <img
                           src="assets/images/course/course_image_5.jpg"
                           alt="course_image_5"
@@ -294,7 +294,7 @@ export default function Home() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Pratique cyber securité web
                         </Link>
                       </h3>
@@ -304,7 +304,7 @@ export default function Home() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html">
+                      <Link to="/course">
                         <img
                           src="assets/images/course/course_image_6.jpg"
                           alt="course_image_6"
@@ -330,7 +330,7 @@ export default function Home() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Data Science security
                         </Link>
                       </h3>

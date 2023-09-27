@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+      };
   return (
     <div>
       <footer className="site_footer">
@@ -31,22 +34,22 @@ export default function Footer() {
                       <h3 className="footer_widget_title">Liens</h3>
                       <ul className="page_list unordered_list_block">
                         <li>
-                          <Link to="about.html">
+                          <Link to="/login" onClick={scrollToTop}>
                             <span className="item_text">Connexion</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="course.html">
+                          <Link to="/" onClick={scrollToTop}>
                             <span className="item_text">Accueil</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="mentor.html">
+                          <Link to="#" onClick={scrollToTop}>
                             <span className="item_text">Blog</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="pricing.html">
+                          <Link to="/contact" onClick={scrollToTop}>
                             <span className="item_text">contact</span>
                           </Link>
                         </li>
@@ -77,17 +80,17 @@ export default function Footer() {
                       <h3 className="footer_widget_title">Support</h3>
                       <ul className="page_list unordered_list_block">
                         <li>
-                          <Link to="contact.html">
+                          <Link to="#">
                             <span className="item_text">Centre d'aide</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="faq.html">
+                          <Link to="#">
                             <span className="item_text">FAQ</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="contact.html">
+                          <Link to="#">
                             <span className="item_text">Contacts</span>
                           </Link>
                         </li>

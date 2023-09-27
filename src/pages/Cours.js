@@ -40,7 +40,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course" >
                         <img
                           src="assets/images/course/course_image_4.jpg"
                           alt="course_image_4"
@@ -66,7 +66,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Introduction a la cyber securité
                         </Link>
                       </h3>
@@ -76,7 +76,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course" >
                         <img
                           src="assets/images/course/course_image_6.jpg"
                           alt="course_image_6"
@@ -102,7 +102,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Data Science security
                         </Link>
                       </h3>
@@ -112,7 +112,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course" >
                         <img
                           src="assets/images/course/course_image_5.jpg"
                           alt="course_image_5"
@@ -138,7 +138,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Pratique cyber securité web
                         </Link>
                       </h3>
@@ -148,7 +148,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course" >
                         <img
                           src="assets/images/course/course_image_4.jpg"
                           alt="course_image_4"
@@ -174,7 +174,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Introduction a la cyber securité
                         </Link>
                       </h3>
@@ -184,7 +184,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course">
                         <img
                           src="assets/images/course/course_image_6.jpg"
                           alt="course_image_6"
@@ -210,7 +210,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Data Science security
                         </Link>
                       </h3>
@@ -220,7 +220,7 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card">
                     <div className="item_image">
-                      <Link to="course_details.html" data-cursor-text="Voir">
+                      <Link to="/course" >
                         <img
                           src="assets/images/course/course_image_5.jpg"
                           alt="course_image_5"
@@ -246,7 +246,7 @@ export default function Cours() {
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="course_details.html">
+                        <Link to="/course">
                           Pratique cyber securité web
                         </Link>
                       </h3>
