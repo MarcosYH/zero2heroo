@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Backtotop from "./components/Backtotop";
 import Navbar from "./components/Navbar";
+import Parcours from "./pages/Parcours";
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/course" element={<Cours />} />
+          <Route path="/path" element={<Parcours />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/testimoni" element={<Temoignage />} />
           <Route path="/login" element={<Login />} />
