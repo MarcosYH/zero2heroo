@@ -6,16 +6,14 @@ export default function Cours() {
     <div>
       <div className="page_wrapper">
         <main className="page_content">
-          {/* Page Section - Start
-        ================================================== */}
-          <section className="page_banner">
+          <section className="">
             <div className="container">
               <div className="content_wrapper">
                 <div className="row align-items-center">
                   <div className="col col-lg-6">
                     <ul className="breadcrumb_nav unordered_list">
                       <li>
-                        <Link to="index.html">Accueil</Link>
+                        <Link to="/">Accueil</Link>
                       </li>
                       <li>Cours</li>
                     </ul>
@@ -30,19 +28,15 @@ export default function Cours() {
               </div>
             </div>
           </section>
-          {/* Page Section - End
-        ================================================== */}
-          {/* Courses Archive Section - Start
-        ================================================== */}
-          <section className="courses_archive_section section_space_lg">
+          <section className="courses_archive_section mb-5">
             <div className="container">
               <div className="row">
                 <div className="col col-lg-4">
                   <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="/course" >
+                      <Link to="/course">
                         <img
-                          src="assets/images/course/course_image_4.jpg"
+                          src="assets/images/course/course_image_4.png"
                           alt="course_image_4"
                         />
                       </Link>
@@ -51,96 +45,26 @@ export default function Cours() {
                       <div className="d-flex align-items-center justify-content-between mb-3">
                         <ul className="item_category_list unordered_list">
                           <li>
-                            <Link to="#!">Détection de faille</Link>
+                            <Link to="#!">Categorie</Link>
                           </li>
                         </ul>
                       </div>
-                      <ul className="meta_info_list unordered_list">
+                      <ul className="meta_info_list unordered_list justify-content-between">
                         <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Debutant</span>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
                         </li>
                         <li>
                           <i className="fas fa-clock" />
-                          <span>120 Heures</span>
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-unlock" />
+                          <span>Gratuit</span>
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="/course">
-                          Introduction a la cyber securité
-                        </Link>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="col col-lg-4">
-                  <div className="course_card">
-                    <div className="item_image">
-                      <Link to="/course" >
-                        <img
-                          src="assets/images/course/course_image_6.jpg"
-                          alt="course_image_6"
-                        />
-                      </Link>
-                    </div>
-                    <div className="item_content">
-                      <div className="d-flex align-items-center justify-content-between mb-3">
-                        <ul className="item_category_list unordered_list">
-                          <li>
-                            <Link to="#!">hacking</Link>
-                          </li>
-                        </ul>
-                      </div>
-                      <ul className="meta_info_list unordered_list">
-                        <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Amateur</span>
-                        </li>
-                        <li>
-                          <i className="fas fa-clock" />
-                          <span>120 Heures</span>
-                        </li>
-                      </ul>
-                      <h3 className="item_title">
-                        <Link to="/course">
-                          Data Science security
-                        </Link>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="col col-lg-4">
-                  <div className="course_card">
-                    <div className="item_image">
-                      <Link to="/course" >
-                        <img
-                          src="assets/images/course/course_image_5.jpg"
-                          alt="course_image_5"
-                        />
-                      </Link>
-                    </div>
-                    <div className="item_content">
-                      <div className="d-flex align-items-center justify-content-between mb-3">
-                        <ul className="item_category_list unordered_list">
-                          <li>
-                            <Link to="#!">security ssl</Link>
-                          </li>
-                        </ul>
-                      </div>
-                      <ul className="meta_info_list unordered_list">
-                        <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Amateur</span>
-                        </li>
-                        <li>
-                          <i className="fas fa-clock" />
-                          <span>120 Heures</span>
-                        </li>
-                      </ul>
-                      <h3 className="item_title">
-                        <Link to="/course">
-                          Pratique cyber securité web
-                        </Link>
+                        <Link to="/course">Titre du cours</Link>
                       </h3>
                     </div>
                   </div>
@@ -148,9 +72,9 @@ export default function Cours() {
                 <div className="col col-lg-4">
                   <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="/course" >
+                      <Link to="/course">
                         <img
-                          src="assets/images/course/course_image_4.jpg"
+                          src="assets/images/course/course_image_4.png"
                           alt="course_image_4"
                         />
                       </Link>
@@ -159,35 +83,37 @@ export default function Cours() {
                       <div className="d-flex align-items-center justify-content-between mb-3">
                         <ul className="item_category_list unordered_list">
                           <li>
-                            <Link to="#!">Détection de faille</Link>
+                            <Link to="#!">Categorie</Link>
                           </li>
                         </ul>
                       </div>
-                      <ul className="meta_info_list unordered_list">
+                      <ul className="meta_info_list unordered_list justify-content-between">
                         <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Debutant</span>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
                         </li>
                         <li>
                           <i className="fas fa-clock" />
-                          <span>120 Heures</span>
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-lock" />
+                          <span>payant</span>
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="/course">
-                          Introduction a la cyber securité
-                        </Link>
+                        <Link to="/course">Titre du cours</Link>
                       </h3>
                     </div>
                   </div>
                 </div>
                 <div className="col col-lg-4">
-                  <div className="course_card">
+                  <div className="course_card style_2">
                     <div className="item_image">
                       <Link to="/course">
                         <img
-                          src="assets/images/course/course_image_6.jpg"
-                          alt="course_image_6"
+                          src="assets/images/course/course_image_4.png"
+                          alt="course_image_4"
                         />
                       </Link>
                     </div>
@@ -195,35 +121,37 @@ export default function Cours() {
                       <div className="d-flex align-items-center justify-content-between mb-3">
                         <ul className="item_category_list unordered_list">
                           <li>
-                            <Link to="#!">hacking</Link>
+                            <Link to="#!">Categorie</Link>
                           </li>
                         </ul>
                       </div>
-                      <ul className="meta_info_list unordered_list">
+                      <ul className="meta_info_list unordered_list justify-content-between">
                         <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Amateur</span>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
                         </li>
                         <li>
                           <i className="fas fa-clock" />
-                          <span>120 Heures</span>
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-lock" />
+                          <span>payant</span>
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="/course">
-                          Data Science security
-                        </Link>
+                        <Link to="/course">Titre du cours</Link>
                       </h3>
                     </div>
                   </div>
                 </div>
                 <div className="col col-lg-4">
-                  <div className="course_card">
+                  <div className="course_card style_2">
                     <div className="item_image">
-                      <Link to="/course" >
+                      <Link to="/course">
                         <img
-                          src="assets/images/course/course_image_5.jpg"
-                          alt="course_image_5"
+                          src="assets/images/course/course_image_4.png"
+                          alt="course_image_4"
                         />
                       </Link>
                     </div>
@@ -231,62 +159,109 @@ export default function Cours() {
                       <div className="d-flex align-items-center justify-content-between mb-3">
                         <ul className="item_category_list unordered_list">
                           <li>
-                            <Link to="#!">security ssl</Link>
+                            <Link to="#!">Categorie</Link>
                           </li>
                         </ul>
                       </div>
-                      <ul className="meta_info_list unordered_list">
+                      <ul className="meta_info_list unordered_list justify-content-between">
                         <li>
-                          <i className="fas fa-chart-bar" />
-                          <span>Amateur</span>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
                         </li>
                         <li>
                           <i className="fas fa-clock" />
-                          <span>120 Heures</span>
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-lock" />
+                          <span>payant</span>
                         </li>
                       </ul>
                       <h3 className="item_title">
-                        <Link to="/course">
-                          Pratique cyber securité web
-                        </Link>
+                        <Link to="/course">Titre du cours</Link>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col col-lg-4">
+                  <div className="course_card style_2">
+                    <div className="item_image">
+                      <Link to="/course">
+                        <img
+                          src="assets/images/course/course_image_4.png"
+                          alt="course_image_4"
+                        />
+                      </Link>
+                    </div>
+                    <div className="item_content">
+                      <div className="d-flex align-items-center justify-content-between mb-3">
+                        <ul className="item_category_list unordered_list">
+                          <li>
+                            <Link to="#!">Categorie</Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <ul className="meta_info_list unordered_list justify-content-between">
+                        <li>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
+                        </li>
+                        <li>
+                          <i className="fas fa-clock" />
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-lock" />
+                          <span>payant</span>
+                        </li>
+                      </ul>
+                      <h3 className="item_title">
+                        <Link to="/course">Titre du cours</Link>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col col-lg-4">
+                  <div className="course_card style_2">
+                    <div className="item_image">
+                      <Link to="/course">
+                        <img
+                          src="assets/images/course/course_image_4.png"
+                          alt="course_image_4"
+                        />
+                      </Link>
+                    </div>
+                    <div className="item_content">
+                      <div className="d-flex align-items-center justify-content-between mb-3">
+                        <ul className="item_category_list unordered_list">
+                          <li>
+                            <Link to="#!">Categorie</Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <ul className="meta_info_list unordered_list justify-content-between">
+                        <li>
+                          <i className="fas fa-chart-bar mr-3" />
+                          <span>Difficulté</span>
+                        </li>
+                        <li>
+                          <i className="fas fa-clock" />
+                          <span>Durée</span>
+                        </li>
+                        <li>
+                          <i class="fas fa-lock" />
+                          <span>payant</span>
+                        </li>
+                      </ul>
+                      <h3 className="item_title">
+                        <Link to="/course">Titre du cours</Link>
                       </h3>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="pagination_wrap">
-                <ul className="pagination_nav unordered_list">
-                  <li>
-                    <Link to="#!">
-                      <i className="fas fa-long-arrow-left" />
-                    </Link>
-                  </li>
-                  <li className="active">
-                    <Link to="#!">1</Link>
-                  </li>
-                  <li>
-                    <Link to="#!">2</Link>
-                  </li>
-                  <li>
-                    <Link to="#!">3</Link>
-                  </li>
-                  <li>
-                    <Link to="#!">...</Link>
-                  </li>
-                  <li>
-                    <Link to="#!">12</Link>
-                  </li>
-                  <li>
-                    <Link to="#!">
-                      <i className="fas fa-long-arrow-right" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
             </div>
           </section>
-          {/* Courses Archive Section - End
-        ================================================== */}
         </main>
       </div>
     </div>
