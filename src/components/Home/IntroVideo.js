@@ -20,8 +20,8 @@ export default function IntroVideo() {
               <Link className="video_play_btn popup_video" to="#">
                 <div>
                   <iframe
-                    width={760}
-                    height={315}
+                    width={860}
+                    height={345}
                     src="https://www.youtube.com/embed/jkLbPCICidY?si=nnl-KPf0bTcYKGAc"
                     title="YouTube video player"
                     frameBorder={0}

@@ -8,9 +8,9 @@ export default function Navbar() {
   return (
     <div>
          <header className="site_header site_header_2">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col col-lg-2 col-5">
+          <div className="container py-3">
+            <div className="row align-items-center justify-content-between">
+              <div className="col-auto">
                 <div className="site_logo">
                   <Link className="site_link" to="/">
                     <img src="assets/images/logo/logoemes1.svg" alt="logo" />
@@ -24,17 +24,22 @@ export default function Navbar() {
                     id="main_menu_dropdown"
                   >
                     <ul className="main_menu_list unordered_list_center">
-                      <li className=" ">
+                      <li>
                         <Link className="nav-link" to="/" onClick={scrollToTop}>
                           Accueil
                         </Link>
                       </li>
-                      <li className>
+                      <li>
                         <Link className="nav-link" to="/course" onClick={scrollToTop}>
                           Cours
                         </Link>
                       </li>
-                      <li className>
+                      <li>
+                        <Link className="nav-link" to="/path" onClick={scrollToTop}>
+                          Parcours
+                        </Link>
+                      </li>
+                      <li>
                         <Link className="nav-link" to="/testimoni" onClick={scrollToTop}>
                           Témoignage
                         </Link>
@@ -48,7 +53,7 @@ export default function Navbar() {
                   </div>
                 </nav>
               </div>
-              <div className="col col-lg-4 col-5">
+              <div className="col-auto ">
                 <ul className="header_btns_group unordered_list_end">
                   <li>
                     <button
