@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Temoignage from "./pages/Temoignage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Error from "./pages/Error";
 
 const RoutesConfig = () => {
   return (
@@ -17,6 +18,7 @@ const RoutesConfig = () => {
       <Route path="/testimoni" element={<Temoignage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+     <Route path="*" element={<Error />} />
     </Routes>
   );
 };

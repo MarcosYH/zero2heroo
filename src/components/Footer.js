@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../assets/logoemes1.svg'
 
 export default function Footer() {
     const scrollToTop = () => {
@@ -14,10 +15,10 @@ export default function Footer() {
               <div className="col col-lg-3 col-md-6 col-sm-6">
                 <div className="footer_widget">
                   <div className="site_logo">
-                    <Link className="site_link" to="index.html">
+                    <Link className="site_link" to="/" onClick={scrollToTop}>
                       <img
-                        src="assets/images/logo/logoemes1.svg"
-                        alt="Collab - Online Learning Platform"
+                        src={logo}
+                        alt="logoemes1"
                       />
                     </Link>
                   </div>

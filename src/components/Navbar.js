@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import logo from '../assets/logoemes1.svg'
 export default function Navbar() {
     const scrollToTop = () => {
         window.scrollTo(0, 0);
@@ -13,7 +13,7 @@ export default function Navbar() {
               <div className="col-auto">
                 <div className="site_logo">
                   <Link className="site_link" to="/">
-                    <img src="assets/images/logo/logoemes1.svg" alt="logo" />
+                    <img src={logo} alt="logo" />
                   </Link>
                 </div>
               </div>
