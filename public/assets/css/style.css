@@ -178,9 +178,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #1f1d0d;
   font-family: "Barlow", sans-serif;
+}
+h3{
+  font-size: 28px !important;
 }
 
 hr {
@@ -188,7 +191,9 @@ hr {
   margin: 25px 0;
   background-color: #d2d2d2;
 }
-
+p{
+  margin-bottom: 1rem !important;
+}
 .fa {
   font-family: "Font Awesome 5 Brands";
 }
@@ -434,7 +439,7 @@ hr {
   background-color: #f7ff62;
 }
 .btn_primary:hover {
-  color: #1f1d0d;
+  color: #1f1d0d ;
   -webkit-box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
   box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
 }
@@ -444,8 +449,8 @@ hr {
 
 .btn_dark {
   color: #ffffff;
-  border-color: #1f1d0d;
-  background-color: #1f1d0d;
+  border-color: #1f1d0d !important;
+  background-color: #1f1d0d !important;
 }
 .btn_dark:hover {
   color: #ffffff;
@@ -1447,11 +1452,11 @@ blockquote p {
   background-color: #1f1d0d;
 }
 .iconbox_item .item_title {
-  font-size: 22px;
+  font-size: 22px !important;
   line-height: 25px;
 }
 .iconbox_item p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
 }
 
@@ -1812,7 +1817,7 @@ blockquote p {
 }
 .hero_banner .banner_big_title {
   font-size: 65px;
-  font-weight: 800;
+  font-weight: 800 !important;
   line-height: 68px;
   color: #ffffff;
   margin-bottom: 20px;
