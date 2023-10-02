@@ -5,7 +5,7 @@ export default function Labtechno() {
     <div>
       <section className="labTechno">
         <div className="container">
-          <h3 className=" text-center">Lab Technologique</h3>
+          <h3 className=" text-center mb-3">Lab Technologique</h3>
           <div className="d-flex flex-wrap col-md-8 mx-auto justify-content-center">
             <div className=" col-3">
               <div className=" d-flex justify-content-center">

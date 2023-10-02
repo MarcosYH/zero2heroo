@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../assets/logoemes1.svg'
+import logo from '../../assets/logoemes1.svg'
 
 export default function Footer() {
     const scrollToTop = () => {
