@@ -1,5 +1,5 @@
 import React from 'react'
-import imgErro from '../assets/error_image.png'
+import imgErro from '../../assets/error_image.png'
 export default function Error() {
   return (
     <div>
