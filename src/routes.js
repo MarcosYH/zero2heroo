@@ -10,6 +10,8 @@ import Register from "./pages/clients/Register";
 import Error from "./pages/clients/Error";
 import Dashboard from "./pages/admin/admin_Dashboard";
 import LayoutAdmin from "./layouts/Admin";
+import User from "./pages/admin/User";
+import AdminParcours from "./pages/admin/Admin_Parcours";
 
 const MainContent = () => {
   return (
@@ -38,19 +40,21 @@ const RoutesConfig = () => {
         <Route path="/testimoni" element={<Temoignage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="*" element={<Error />} />
       </Route>
+      <Route path="*" element={<Error />} />
 
       {/* Routes admins */}
       <Route
-        path="/admin/*"
+        path="/admin"
         element={
           <LayoutAdmin>
-            <Outlet />
+            <MainContent />
           </LayoutAdmin>
         }
       >
         <Route index element={<Dashboard />} />
+        <Route path="/admin/user" element={<User />} />
+        <Route path="/admin/learnpath" element={<AdminParcours />} />
         {/* Ajoutez d'autres routes spécifiques à l'administration ici */}
       </Route>
     </Routes>
