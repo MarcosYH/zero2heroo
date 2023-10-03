@@ -1,0 +1,11 @@
+.dash_link:hover {
+  font-weight: bold;
+  color: #212b36;
+}
+.dash_link:hover svg path {
+  font-weight: bold;
+  stroke: #212b36;
+}
+a:hover{
+color: #212b36;
+}
