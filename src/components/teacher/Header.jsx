@@ -32,7 +32,7 @@ export default function Header() {
           </div>
           <div className="flex items-center">
              
-              <span className="text-gray-600 text-sm mr-2"> test-Admin </span>
+              <span className="text-gray-600 text-sm mr-2">test-Enseignant</span>
             
             <img src={Profile} alt="Profile" className="w-8 h-8 rounded-full" />
           </div>

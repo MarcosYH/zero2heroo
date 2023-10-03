@@ -12,6 +12,13 @@ import Dashboard from "./pages/admin/admin_Dashboard";
 import LayoutAdmin from "./layouts/Admin";
 import User from "./pages/admin/User";
 import AdminParcours from "./pages/admin/Admin_Parcours";
+import AddLearnPath from "./pages/admin/AddLearnPath";
+import AdminProfil from "./pages/admin/AdminProfil";
+import AdminLabs from "./pages/admin/AdminLabs";
+import LayoutTeacher from "./layouts/teacher";
+import TeacherDashboard from "./pages/teacher/TeacherDashboard";
+import TeacherLab from "./pages/teacher/TeacherLab";
+import TeacherAddlabs from "./pages/teacher/TeacherAddlabs";
 
 const MainContent = () => {
   return (
@@ -55,8 +62,25 @@ const RoutesConfig = () => {
         <Route index element={<Dashboard />} />
         <Route path="/admin/user" element={<User />} />
         <Route path="/admin/learnpath" element={<AdminParcours />} />
-        {/* Ajoutez d'autres routes spécifiques à l'administration ici */}
+        <Route path="/admin/addlearnpath" element={<AddLearnPath />} />
+        <Route path="/admin/profil" element={<AdminProfil />} />
+        <Route path="/admin/labs" element={<AdminLabs />} />
       </Route>
+
+      {/* Routes enseignant */}
+      <Route
+        path="/teacher"
+        element={
+          <LayoutTeacher>
+            <MainContent />
+          </LayoutTeacher>
+        }
+      >
+        <Route index element={<TeacherDashboard />} />
+        <Route path="/teacher/labs" element={<TeacherLab />} />
+      <Route path="/teacher/addlabs" element={<TeacherAddlabs />} />
+      </Route>
+
     </Routes>
   );
 };

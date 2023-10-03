@@ -66,7 +66,7 @@ export default function Sidebar() {
           </button>
           {/* logo */}
           <div className=" p-5 pb-2">
-            <Link to="/admin">
+            <Link to="/teacher">
               <img src={Logo} alt="Logo" className=" h-20" />
             </Link>
           </div>
@@ -74,7 +74,7 @@ export default function Sidebar() {
           <nav className=" mt-4">
             {/* Dashboard-link */}
             <Link
-              to="/admin"
+              to="/teacher"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
             >
               <svg
@@ -93,23 +93,10 @@ export default function Sidebar() {
                 Dashboard
               </span>
             </Link>
-            {/* Utilisateurs-link */}
-            <Link
-              to="/admin/user"
-              className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
-            >
-              <svg width="25" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="6" r="4" stroke="#1C274C" strokeWidth="1.5" />
-                <path d="M15 20.6151C14.0907 20.8619 13.0736 21 12 21C8.13401 21 5 19.2091 5 17C5 14.7909 8.13401 13 12 13C15.866 13 19 14.7909 19 17C19 17.3453 18.9234 17.6804 18.7795 18" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-
-              <span className="block px-3 text-md font-medium ">
-                Utilisateurs
-              </span>
-            </Link>
+             
             {/*  Parcours_d'apprentissages-link */}
             <Link
-              to="/admin/learnpath"
+              to="#!"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
             >
               <svg
@@ -130,7 +117,7 @@ export default function Sidebar() {
             </Link>
             {/* Cours-link */}
             <Link
-              to="/admin/labs"
+              to="/teacher/labs"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
             >
               <svg
@@ -176,7 +163,7 @@ export default function Sidebar() {
             </Link>
             {/*  Settings-link */}
             <Link
-              to="/admin/profil"
+              to="#!"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md mt-4"
             >
               <svg
@@ -199,27 +186,7 @@ export default function Sidebar() {
                 Profil
               </span>
             </Link>
-            {/* Help */}
-            <Link
-              to="#!"
-              className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M9.13626 9.13628L4.92893 4.92896M4.92893 19.0711L9.16797 14.8321M14.8611 14.8638L19.0684 19.0711M19.0684 4.92896L14.8287 9.16862M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
-                  stroke="#667085"
-                />
-              </svg>
-              <span className="block px-3 text-md font-medium ">
-                Demande d'assistance
-              </span>
-            </Link>
+            
             {/* Déconnexion */}
             <Link
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"

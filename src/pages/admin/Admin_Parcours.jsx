@@ -11,7 +11,7 @@ export default function AdminParcours() {
           to="/admin/addlearnpath"
           className='btn btn-primary pt-3 px-3 pb-3'>
           <i class="fas fa-plus mr-3"></i>
-          <span>Nouveau Parcours</span>
+          <span>Créer un parcours</span>
         </Link>
       </div>
       <div>

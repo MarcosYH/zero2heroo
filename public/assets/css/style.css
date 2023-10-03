@@ -194,6 +194,17 @@ hr {
 p{
   margin-bottom: 1rem !important;
 }
+input[type="number"] {
+  overflow: hidden !important;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
 .fa {
   font-family: "Font Awesome 5 Brands";
 }
