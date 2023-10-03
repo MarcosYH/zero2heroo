@@ -53,7 +53,7 @@ export default function CoursHome() {
                       <span>Durée</span>
                     </li>
                     <li>
-                      <i class="fas fa-unlock" />
+                      <i className="fas fa-unlock" />
                       <span>Gratuit</span>
                     </li>
                   </ul>
@@ -91,7 +91,7 @@ export default function CoursHome() {
                       <span>Durée</span>
                     </li>
                     <li>
-                      <i class="fas fa-lock" />
+                    <i className="fas fa-lock" />
                       <span>payant</span>
                     </li>
                   </ul>
@@ -129,7 +129,7 @@ export default function CoursHome() {
                       <span>Durée</span>
                     </li>
                     <li>
-                      <i class="fas fa-lock" />
+                      <i className="fas fa-lock" />
                       <span>payant</span>
                     </li>
                   </ul>
