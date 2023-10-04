@@ -16,9 +16,13 @@ import AddLearnPath from "./pages/admin/AddLearnPath";
 import AdminProfil from "./pages/admin/AdminProfil";
 import AdminLabs from "./pages/admin/AdminLabs";
 import LayoutTeacher from "./layouts/teacher";
+import LayoutStudent from "./layouts/Students";
 import TeacherDashboard from "./pages/teacher/TeacherDashboard";
 import TeacherLab from "./pages/teacher/TeacherLab";
 import TeacherAddlabs from "./pages/teacher/TeacherAddlabs";
+import StudentDashboard from "./pages/students/StudentDashboard";
+import TeacherParcours from "./pages/teacher/Teacher_Parcours";
+import TeacherAddsection from "./pages/teacher/TeacherAddsection";
 
 const MainContent = () => {
   return (
@@ -78,9 +82,22 @@ const RoutesConfig = () => {
       >
         <Route index element={<TeacherDashboard />} />
         <Route path="/teacher/labs" element={<TeacherLab />} />
-      <Route path="/teacher/addlabs" element={<TeacherAddlabs />} />
+        <Route path="/teacher/addlabs" element={<TeacherAddlabs />} />
+        <Route path="/teacher/learnpath" element={<TeacherParcours />} />
+        <Route path="/teacher/addsection" element={<TeacherAddsection />} />
       </Route>
 
+      {/* Routes etudiants */}
+      <Route
+        path="/student"
+        element={
+          <LayoutStudent>
+            <MainContent />
+          </LayoutStudent>
+        }
+      >
+        <Route index element={<StudentDashboard />} />
+      </Route>
     </Routes>
   );
 };

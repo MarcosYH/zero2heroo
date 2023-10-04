@@ -20,14 +20,14 @@ export default function TeacherAddlabs() {
           </div>
         </div>
         <div className=" lg:flex justify-center my-3">
-          {/* form of add lab */}
-          <div className=" w-full px-8 py-6 bg-slate-100">
+          {/* form of add article */}
+          <div className="lg:w-2/3 px-8 py-6 bg-slate-100">
             <div className="flex justify-center">
               <div className=" w-full ">
                 <div>
                   <div className="my-4">
                     <span htmlFor="nom" className="block text-sm font-medium text-gray-700">
-                      Nom du lab
+                      Titre du lab
                     </span>
                     <input
                       type="text"
@@ -37,18 +37,17 @@ export default function TeacherAddlabs() {
                       required
                     />
                   </div>
-                  
                   <div>
-                    <div className="md:flex">
+                    <div className="lg:flex flex-wrap">
                       <div className="">
                         <span className="block text-sm font-medium text-gray-700">
-                          Technologie
+                          Catégorie
                         </span>
                         <select name="categorie" id="categorie" className='p-2 px-10 mr-6 rounded-lg border border-gray-300'>
-                          <option value="React">React</option>
-                          <option value="Angular">Angular</option>
-                          <option value="Next">Next</option>
-                          <option value="Docker">Docker</option>
+                          <option value="web">web</option>
+                          <option value="devops">devops</option>
+                          <option value="mobile">mobile</option>
+                          <option value="securite">securite</option>
                         </select>
 
                       </div>
@@ -67,21 +66,92 @@ export default function TeacherAddlabs() {
                         </select>
                       </div>
                       <div className="">
-                        <span htmlFor="time" className="block text-sm font-medium text-gray-700">
-                          Durée
+                        <span className="block text-sm font-medium text-gray-700">
+                          technologie
+                        </span>
+                        <select
+                          id="difficulte"
+                          name="categorie"
+                          className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
+                        >
+                          <option value="React">React</option>
+                          <option value="Angular">Angular</option>
+                          <option value="Nodejs"> Nodejs</option>
+                        </select>
+                      </div>
+
+                      <div className="">
+                        <span className="block text-sm font-medium text-gray-700">
+                          type
+                        </span>
+                        <select
+                          id="difficulte"
+                          name="categorie"
+                          className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
+                        >
+                          <option value="React">env_dockerfile</option>
+                          <option value="Angular">env_dockerCompose</option>
+                          <option value="Nodejs"> code review</option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <div className="lg:flex flex-wrap my-4">
+                      <div className=" mr-4">
+                        <span className="block text-sm font-medium text-gray-700">
+                          Nom de l'image du lab
                         </span>
                         <input
-                          type="number"
-                          id="time"
-                          name="time"
-                          className="overflow-hidden mt-1 p-2 w-1/2 border rounded-lg"
-                          placeholder="Durée"
+                          type="text"
+                          id="name"
+                          name="name"
+                          className="mt-1 p-2 w-full border rounded-lg"
                           required
                         />
+
                       </div>
+
+                      <div className=" mr-4">
+                        <span className="block text-sm font-medium text-gray-700">
+                          services
+                        </span>
+                        <input
+                          type="text"
+                          id="services"
+                          name="services"
+                          placeholder='web:80; sql:3306'
+                          className="mt-1 p-2 w-full border rounded-lg"
+                          required
+                        />
+
+                      </div>
+
+
+                      <div className=" mr-4">
+                        <span className="block text-sm font-medium text-gray-700 mb-1">
+                          Type access
+                        </span>
+                        <select name="categorie" id="categorie" className='p-2 px-10 mr-6 rounded-lg border border-gray-300'>
+                          <option value="web">ssh</option>
+                          <option value="devops">gui </option>
+                          <option value="mobile">BOTH</option>
+                        </select>
+
+                      </div>
+
+
+
                     </div>
                   </div>
 
+                  <div className=' my-4'>
+                    <span> Ajouter une image au parcours</span>
+                    <input
+                      className=" w-full border rounded-sm bg-white p-2 mt-1 overflow-hidden cursor-pointer block"
+                      type="file"
+                      accept="image/*"
+                    />
+                  </div>
                   <div className="container mx-auto my-8">
                     <span htmlFor="description" className="block mb-2 text-xl font-bold text-gray-700">
                       Description
@@ -93,12 +163,83 @@ export default function TeacherAddlabs() {
                       className="bg-white p-2 border border-gray-300 rounded"
                     />
                   </div>
-                 
+                  {/* <div className="container mx-auto my-8">
+                    <span htmlFor="description" className="block mb-2 text-xl font-bold text-gray-700">
+                      Configuration du conteneur
+                    </span>
+                    <ReactQuill
+                      value={content}
+                      onChange={handleEditorChange}
+                      placeholder="Entrer les configs pour lancer le conteneur"
+                      className="bg-white p-2 border border-gray-300 rounded"
+                    />
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
+          <div className="lg:w-1/3 p-4 mx-4 bg-slate-100">
+            <div className=" w-full ">
+              <div>
+                <div className="my-4">
+                  <span htmlFor="price" className="block text-sm font-medium text-gray-700">
+                    Prix du lab
+                  </span>
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    className="overflow-hidden mt-1 p-2 w-full border rounded-lg"
+                    placeholder=" Prix"
+                    required
+                  />
+                </div>
 
+                <div className="my-4 text-center">
+                  <span htmlFor="time" className="block text-sm font-medium text-gray-700">
+                    Auteur
+                  </span>
+                  <input
+                    type="text"
+                    id="auteur"
+                    name="auteur"
+                    className="overflow-hidden mt-1 p-2 border rounded-lg"
+                    placeholder="Auteur"
+                    required
+                  />
+                </div>
+
+                <div className="my-4 text-center">
+                  <span htmlFor="time" className="block text-sm font-medium text-gray-700">
+                    Durée par nombre de <br /> semaine
+                  </span>
+                  <input
+                    type="number"
+                    id="time"
+                    name="time"
+                    className="overflow-hidden mt-1 p-2  border rounded-lg"
+                    placeholder="Entrer le nombre de semaine"
+                    required
+                  />
+                </div>
+
+                <div className="my-4 text-center">
+                  <span htmlFor="time" className="block text-sm font-medium text-gray-700">
+                    Score
+                  </span>
+                  <input
+                    type="number"
+                    id="auteur"
+                    name="auteur"
+                    className="overflow-hidden mt-1 p-2  border rounded-lg"
+                    placeholder="Score"
+                    required
+                  />
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     </div>

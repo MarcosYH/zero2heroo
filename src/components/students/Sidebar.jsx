@@ -66,7 +66,7 @@ export default function Sidebar() {
           </button>
           {/* logo */}
           <div className=" p-5 pb-2">
-            <Link to="/teacher">
+            <Link to="/student">
               <img src={Logo} alt="Logo" className=" h-20" />
             </Link>
           </div>
@@ -74,7 +74,7 @@ export default function Sidebar() {
           <nav className=" mt-4">
             {/* Dashboard-link */}
             <Link
-              to="/teacher"
+              to="/student"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
             >
               <svg
@@ -93,10 +93,10 @@ export default function Sidebar() {
                 Dashboard
               </span>
             </Link>
-             
+
             {/*  Parcours_d'apprentissages-link */}
             <Link
-              to="/teacher/learnpath"
+              to="#!"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
             >
               <svg
@@ -117,8 +117,35 @@ export default function Sidebar() {
             </Link>
             {/* Cours-link */}
             <Link
-              to="/teacher/labs"
+              to="#!"
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="21"
+                viewBox="0 0 25 21"
+                fill="none"
+              >
+                <path d="M1 1H24.1111V15.0556H1V1Z" stroke="#0B1719" />
+                <path
+                  d="M12.5555 11.8611C9.66665 10.5833 5.33331 11.8611 5.33331 11.8611V5.47223C9.66665 2.91667 12.5555 5.47223 12.5555 5.47223M12.5555 11.8611V5.47223M12.5555 11.8611C12.5555 11.8611 16.8889 10.5833 19.7778 11.8611V5.47223C19.7778 5.47223 16.8889 2.91667 12.5555 5.47223"
+                  stroke="#0B1719"
+                />
+                <path
+                  d="M11.8333 16.333L7.5 20.1663H17.6111L13.2778 16.333H11.8333Z"
+                  fill="#0B1719"
+                  stroke="#0B1719"
+                />
+              </svg>
+              <span className="block px-3 text-md font-medium ">
+                Laboratoires
+              </span>
+            </Link>
+            {/*  Cours-link */}
+            <Link
+              to="#!"
+              className="hover:bg-[#e8ebee] mx-[0.8rem] flex dash_link p-2 rounded-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -132,11 +159,15 @@ export default function Sidebar() {
                   fill="#0B1719"
                 />
               </svg>
-              <span className="block px-3 text-md font-medium ">
-                Labs
+              <span
+
+                className="block px-3 text-md font-medium "
+
+              >
+                Cours
               </span>
             </Link>
-            {/*  Cours-link */}
+
             <Link
               to="#!"
               className="hover:bg-[#e8ebee] mx-[0.8rem] flex dash_link p-2 rounded-md"
@@ -158,7 +189,7 @@ export default function Sidebar() {
                 className="block px-3 text-md font-medium "
 
               >
-                Cours
+                Réalisations
               </span>
             </Link>
             {/*  Settings-link */}
@@ -183,10 +214,10 @@ export default function Sidebar() {
                 />
               </svg>
               <span className="block px-3 text-md font-medium ">
-                Profil
+                Paramètres
               </span>
             </Link>
-            
+
             {/* Déconnexion */}
             <Link
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"

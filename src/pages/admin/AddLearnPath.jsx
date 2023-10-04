@@ -21,7 +21,7 @@ export default function AddLearnPath() {
         </div>
         <div className=" lg:flex justify-center my-3">
           {/* form of add article */}
-          <div className="lg:w-2/3 px-8 py-6 bg-slate-100">
+          <div className="w-full px-8 py-6 bg-slate-100">
             <div className="flex justify-center">
               <div className=" w-full ">
                 <div>
@@ -38,12 +38,12 @@ export default function AddLearnPath() {
                     />
                   </div>
                   <div>
-                    <div className="lg:flex">
+                    <div className="">
                       <div className="">
                         <span className="block text-sm font-medium text-gray-700">
                           Catégorie
                         </span>
-                        <select name="categorie" id="categorie" className='p-2 px-10 mr-6 rounded-lg border border-gray-300'>
+                        <select name="categorie" id="categorie" className='p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300'>
                           <option value="web">web</option>
                           <option value="devops">devops</option>
                           <option value="mobile">mobile</option>
@@ -51,7 +51,7 @@ export default function AddLearnPath() {
                         </select>
                         
                       </div>
-                      <div className="">
+                      {/* <div className="">
                         <span className="block text-sm font-medium text-gray-700">
                           Difficulté
                         </span>
@@ -64,7 +64,7 @@ export default function AddLearnPath() {
                           <option value="Amateur">Amateur</option>
                           <option value="Expert"> Expert</option>
                         </select>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 
@@ -91,7 +91,7 @@ export default function AddLearnPath() {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/3 p-4 mx-4 bg-slate-100">
+          {/* <div className="lg:w-1/3 p-4 mx-4 bg-slate-100">
             <div className=" w-full ">
               <div>
                 <div className="my-4">
@@ -134,7 +134,7 @@ export default function AddLearnPath() {
                  
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </form>
     </div>

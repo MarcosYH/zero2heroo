@@ -54,7 +54,7 @@ export default function Login() {
                       </button>
                       <p className="mb-0 text-center">
                         vous n'avez pas de compte ?{" "}
-                        <Link to="signup.html">S'inscrire ici</Link>
+                        <Link to="/register">S'inscrire ici</Link>
                       </p>
                     </div>
                   </form>
