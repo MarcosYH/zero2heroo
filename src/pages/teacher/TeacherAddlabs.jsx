@@ -11,13 +11,9 @@ export default function TeacherAddlabs() {
   return (
     <div className='p-10 px-20 lg:ml-64'>
       <form>
-        <div className=" flex justify-between mb-10">
-          <h4 className=" text-3xl font-bold">Créer un nouveau lab</h4>
-          <div>
-            <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
-              Publier maintenant
-            </button>
-          </div>
+        <div className=" mb-10">
+          <h4 className=" text-3xl font-bold">Création de nouveau lab</h4>
+
         </div>
         <div className=" lg:flex justify-center my-3">
           {/* form of add article */}
@@ -39,7 +35,7 @@ export default function TeacherAddlabs() {
                   </div>
                   <div>
                     <div className="lg:flex flex-wrap">
-                      <div className="">
+                      <div className=" mb-3">
                         <span className="block text-sm font-medium text-gray-700">
                           Catégorie
                         </span>
@@ -61,13 +57,13 @@ export default function TeacherAddlabs() {
                           className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
                         >
                           <option value="Débutant">Débutant</option>
-                          <option value="Amateur">Amateur</option>
-                          <option value="Expert"> Expert</option>
+                          <option value="Amateur">Intermédiaire</option>
+                          <option value="Expert"> Avancé</option>
                         </select>
                       </div>
                       <div className="">
                         <span className="block text-sm font-medium text-gray-700">
-                          technologie
+                          Technologie
                         </span>
                         <select
                           id="difficulte"
@@ -82,15 +78,15 @@ export default function TeacherAddlabs() {
 
                       <div className="">
                         <span className="block text-sm font-medium text-gray-700">
-                          type
+                          Type
                         </span>
                         <select
                           id="difficulte"
                           name="categorie"
                           className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
                         >
-                          <option value="React">env_dockerfile</option>
-                          <option value="Angular">env_dockerCompose</option>
+                          <option value="env_dockerfile">environnement dockerfile</option>
+                          <option value="env_dockerCompose">environnement dockerCompose</option>
                           <option value="Nodejs"> code review</option>
                         </select>
                       </div>
@@ -113,7 +109,7 @@ export default function TeacherAddlabs() {
 
                       <div className=" mr-4">
                         <span className="block text-sm font-medium text-gray-700">
-                          services
+                          Services
                         </span>
                         <input
                           type="text"
@@ -134,12 +130,8 @@ export default function TeacherAddlabs() {
                         <select name="categorie" id="categorie" className='p-2 px-10 mr-6 rounded-lg border border-gray-300'>
                           <option value="web">ssh</option>
                           <option value="devops">gui </option>
-                          <option value="mobile">BOTH</option>
                         </select>
-
                       </div>
-
-
 
                     </div>
                   </div>
@@ -181,20 +173,6 @@ export default function TeacherAddlabs() {
           <div className="lg:w-1/3 p-4 mx-4 bg-slate-100">
             <div className=" w-full ">
               <div>
-                <div className="my-4">
-                  <span htmlFor="price" className="block text-sm font-medium text-gray-700">
-                    Prix du lab
-                  </span>
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    className="overflow-hidden mt-1 p-2 w-full border rounded-lg"
-                    placeholder=" Prix"
-                    required
-                  />
-                </div>
-
                 <div className="my-4 text-center">
                   <span htmlFor="time" className="block text-sm font-medium text-gray-700">
                     Auteur
@@ -211,14 +189,14 @@ export default function TeacherAddlabs() {
 
                 <div className="my-4 text-center">
                   <span htmlFor="time" className="block text-sm font-medium text-gray-700">
-                    Durée par nombre de <br /> semaine
+                    Durée(min)
                   </span>
                   <input
                     type="number"
                     id="time"
                     name="time"
                     className="overflow-hidden mt-1 p-2  border rounded-lg"
-                    placeholder="Entrer le nombre de semaine"
+                    placeholder="15min"
                     required
                   />
                 </div>
@@ -240,6 +218,11 @@ export default function TeacherAddlabs() {
               </div>
             </div>
           </div>
+        </div>
+        <div className=' text-center mt-5'>
+          <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
+            Publier maintenant
+          </button>
         </div>
       </form>
     </div>
