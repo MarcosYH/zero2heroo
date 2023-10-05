@@ -1,7 +1,7 @@
 import React from 'react'
 import Profile from "../../assets/dashboard/Profil.png";
 import "../../styles/Sidebar.css";
-import { Link } from 'react-router-dom';
+
 
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
       <nav>
         <div className=" p-4 flex justify-end border-b-2">
           <div className=" mx-auto">
-            <div className="hover:bg-[#e8ebee] mx-2 bg-[#F0F0F0] flex p-2 rounded-md items-center mr-20">
+            {/* <div className="hover:bg-[#e8ebee] mx-2 bg-[#F0F0F0] flex p-2 rounded-md items-center mr-20">
               <Link className="block px-4 text-sm font-medium" to=" #">
                 Running labs
               </Link>
@@ -28,7 +28,7 @@ export default function Header() {
                   />
                 </svg>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center">
              

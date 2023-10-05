@@ -45,7 +45,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
         <div className=' lg:flex mt-4'>
           <div className="grid grid-cols-1 my-4 lg:w-1/2">
             <div className="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">

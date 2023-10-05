@@ -23,6 +23,10 @@ import TeacherAddlabs from "./pages/teacher/TeacherAddlabs";
 import StudentDashboard from "./pages/students/StudentDashboard";
 import TeacherParcours from "./pages/teacher/Teacher_Parcours";
 import TeacherAddsection from "./pages/teacher/TeacherAddsection";
+import TeacherLabDetail from "./pages/teacher/TeacherLabDetail";
+import ParcoursEmpty from "./components/general/ParcoursEmpty";
+import AdminAddLabs from "./pages/admin/AdminAddLabs";
+import AdminLabDetail from "./pages/admin/AdminLabDetail";
 
 const MainContent = () => {
   return (
@@ -69,6 +73,9 @@ const RoutesConfig = () => {
         <Route path="/admin/addlearnpath" element={<AddLearnPath />} />
         <Route path="/admin/profil" element={<AdminProfil />} />
         <Route path="/admin/labs" element={<AdminLabs />} />
+        <Route path="/admin/learnpathEmpty" element={<ParcoursEmpty />} />
+        <Route path="/admin/addlabs" element={<AdminAddLabs />} />
+        <Route path="/admin/labdetail" element={<AdminLabDetail />} />
       </Route>
 
       {/* Routes enseignant */}
@@ -85,6 +92,8 @@ const RoutesConfig = () => {
         <Route path="/teacher/addlabs" element={<TeacherAddlabs />} />
         <Route path="/teacher/learnpath" element={<TeacherParcours />} />
         <Route path="/teacher/addsection" element={<TeacherAddsection />} />
+        <Route path="/teacher/labdetail" element={<TeacherLabDetail />} />
+        <Route path="/teacher/learnpathEmpty" element={<ParcoursEmpty />} />
       </Route>
 
       {/* Routes etudiants */}

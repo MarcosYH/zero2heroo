@@ -1,142 +1,141 @@
 import React, { useState } from 'react'
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import axios from 'axios';
 
 export default function AddLearnPath() {
-  const [content, setContent] = useState('');
 
-  const handleEditorChange = (value) => {
-    setContent(value);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [formData, setFormData] = useState({
+    wording: "",
+    description: "",
+    image: "",
+    categorie: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://38.242.136.15:3000/createPath",
+        formData
+      );
+      console.log("Réponse du serveur:", response.data);
+      setSuccessMessage("Parcours créé avec succès !");
+      // Réinitialise le formulaire après le succès de la requête
+      setFormData({
+        wording: "",
+        description: "",
+        image: "",
+        categorie: ""
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error);
+    }
+  };
+
   return (
     <div className='p-4 lg:ml-64'>
-      <form>
-        <div className=" flex justify-between mb-10">
+      <div>
+        <div className=" mb-10">
           <h4 className=" text-3xl font-bold">Créer un nouveau parcours</h4>
-          <div>
-            <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
-              Publier maintenant
-            </button>
-          </div>
         </div>
         <div className=" lg:flex justify-center my-3">
           {/* form of add article */}
           <div className="w-full px-8 py-6 bg-slate-100">
             <div className="flex justify-center">
               <div className=" w-full ">
-                <div>
+                {/* Affiche le message de succès s'il est défini */}
+                {successMessage && (
+                  <div className="mt-4 bg-green-200 border border-green-400 text-green-700 px-4 py-2 rounded">
+                    {successMessage}
+                  </div>
+                )}
+                <form onSubmit={handleSubmit}>
                   <div className="my-4">
-                    <span htmlFor="nom" className="block text-sm font-medium text-gray-700">
+                    {/* Titre du parcours */}
+                    <label htmlFor="wording" className="block text-sm font-medium text-gray-700">
                       Titre du parcours
-                    </span>
+                    </label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
+                      id="wording"
+                      name="wording"
+                      value={formData.wording}
+                      onChange={handleChange}
                       className="mt-1 p-2 w-full border rounded-lg"
                       required
                     />
                   </div>
-                  <div>
-                    <div className="">
-                      <div className="">
-                        <span className="block text-sm font-medium text-gray-700">
-                          Catégorie
-                        </span>
-                        <select name="categorie" id="categorie" className='p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300'>
-                          <option value="web">web</option>
-                          <option value="devops">devops</option>
-                          <option value="mobile">mobile</option>
-                          <option value="securite">securite</option>
-                        </select>
-                        
-                      </div>
-                      {/* <div className="">
-                        <span className="block text-sm font-medium text-gray-700">
-                          Difficulté
-                        </span>
-                        <select
-                          id="difficulte"
-                          name="categorie"
-                          className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
-                        >
-                          <option value="Débutant">Débutant</option>
-                          <option value="Amateur">Amateur</option>
-                          <option value="Expert"> Expert</option>
-                        </select>
-                      </div> */}
-                    </div>
+
+                  <div className="">
+                    {/* Catégorie */}
+                    <label htmlFor="categorie" className="block text-sm font-medium text-gray-700">
+                      Catégorie
+                    </label>
+                    <select
+                      id="categorie"
+                      type="text"
+                      name="categorie"
+                      value={formData.categorie}
+                      onChange={handleChange}
+                      className="p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300"
+                      required
+                    >
+                      <option value="web">web</option>
+                      <option value="devops">devops</option>
+                      <option value="mobile">mobile</option>
+                      <option value="securite">securite</option>
+                    </select>
                   </div>
 
-                  <div className=' my-4'>
-                    <span> Ajouter une image au parcours</span>
+                  <div className='my-4'>
+                    {/* Image */}
+                    <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                      Ajouter une image au parcours
+                    </label>
                     <input
-                      className=" w-full border rounded-sm bg-white p-2 mt-1 overflow-hidden cursor-pointer block"
                       type="file"
+                      id="image"
+                      // type="text"
+                      name="image"
+                      value={formData.image}
+                      onChange={handleChange}
+                      className="w-full border rounded-sm bg-white p-2 mt-1 overflow-hidden cursor-pointer block"
                       accept="image/*"
                     />
                   </div>
+
                   <div className="container mx-auto my-8">
-                    <span htmlFor="description" className="block mb-2 text-xl font-bold text-gray-700">
+                    {/* Description */}
+                    <label htmlFor="description" className="block mb-2 text-xl font-bold text-gray-700">
                       Description
-                    </span>
-                    <ReactQuill
-                      value={content}
-                      onChange={handleEditorChange}
+                    </label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      value={formData.description}
+                      onChange={handleChange}
                       placeholder="Écrivez quelque chose..."
-                      className="bg-white p-2 border border-gray-300 rounded"
+                      className="bg-white p-2 border border-gray-300 rounded w-full h-32"
+                      required
                     />
                   </div>
-                </div>
+                  <div className=' text-center'>
+                    <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
+                      Publier maintenant
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          {/* <div className="lg:w-1/3 p-4 mx-4 bg-slate-100">
-            <div className=" w-full ">
-              <div>
-                <div className="my-4">
-                  <span htmlFor="price" className="block text-sm font-medium text-gray-700">
-                    Prix du parcours
-                  </span>
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    className="overflow-hidden mt-1 p-2 w-full border rounded-lg"
-                    placeholder=" Prix"
-                    required
-                  />
-                </div>
-                <div className="my-4">
-                  <span htmlFor="time" className="block text-sm font-medium text-gray-700">
-                    Durée
-                  </span>
-                  <input
-                    type="number"
-                    id="time"
-                    name="time"
-                    className="overflow-hidden mt-1 p-2 w-1/2 border rounded-lg"
-                    placeholder="Durée"
-                    required
-                  />
-                </div>
-                <div>
-                  <h4 className=' mb-1'>nombre de cours dans le parcours</h4>
-                  <input
-                    type="number"
-                    id="cours"
-                    name="cours"
-                    className="overflow-hidden mt-1 p-2 w-1/2 border rounded-lg"
-                    placeholder="Nombre de cours dans le parcours"
-                    required
-                  />
-                </div>
-                 
-              </div>
-            </div>
-          </div> */}
         </div>
-      </form>
+      </div>
     </div>
   )
 }

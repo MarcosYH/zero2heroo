@@ -22,33 +22,23 @@ export default function TeacherParcours() {
               </div>
               <div className="item_content">
                 <div className="d-flex align-items-center justify-content-between mb-3">
-                  <ul className="item_category_list unordered_list">
+                  <ul className="item_category_list unordered_list meta_info_list">
                     <li>
                       <Link to="#!">Categorie</Link>
                     </li>
+                    <li>
+                    <i className="fas fa-unlock" />
+                    <span>Accessible</span>
+                  </li>
                   </ul>
                 </div>
-                <ul className="meta_info_list unordered_list justify-content-between">
-                  <li>
-                    <i className="fas fa-chart-bar mr-3" />
-                    <span>Difficulté</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-clock" />
-                    <span>Durée</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-unlock" />
-                    <span>Gratuit</span>
-                  </li>
-                </ul>
                 <h3 className="item_title">
                   <Link to="/teacher/addsection">Titre du parcours</Link>
                 </h3>
               </div>
             </div>
           </div>
-          <div className="col col-lg-4">
+          {/* <div className="col col-lg-4">
             <div className="course_card style_2">
               <div className="item_image">
                 <Link to="#">
@@ -123,7 +113,7 @@ export default function TeacherParcours() {
                 </h3>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

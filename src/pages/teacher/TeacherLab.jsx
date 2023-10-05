@@ -17,6 +17,30 @@ export default function TeacherLab() {
       </Link>
     </div>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10'>
+      <Link to="/teacher/labdetail" className="rounded-lg overflow-hidden shadow-md m-4">
+        <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
+        <div className="px-6 py-4 text-center">
+          <span to="/teacher/labdetail" className="font-bold text-xl border rounded-xl px-8 py-1">
+            React
+          </span>
+        </div>
+      </Link>
+      {/* <div className="rounded-lg overflow-hidden shadow-md m-4">
+        <img className="w-1/3  mx-auto" src={angularimg} alt="Card" />
+        <div className="px-6 py-4 text-center">
+          <Link className="font-bold text-xl border rounded-xl px-4">
+            Angulaire
+          </Link>
+        </div>
+      </div>
+      <div className="rounded-lg overflow-hidden shadow-md m-4">
+        <img className="w-1/3  mx-auto" src={nextimg} alt="Card" />
+        <div className="px-6 py-4 text-center">
+          <Link className="font-bold text-xl border rounded-xl px-4">
+            Nextjs
+          </Link>
+        </div>
+      </div>
       <div className="rounded-lg overflow-hidden shadow-md m-4">
         <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
         <div className="px-6 py-4 text-center">
@@ -40,33 +64,7 @@ export default function TeacherLab() {
             Nextjs
           </Link>
         </div>
-      </div><div className="rounded-lg overflow-hidden shadow-md m-4">
-        <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
-        <div className="px-6 py-4 text-center">
-          <Link className="font-bold text-xl border rounded-xl px-4">
-            React
-          </Link>
-        </div>
-      </div>
-      <div className="rounded-lg overflow-hidden shadow-md m-4">
-        <img className="w-1/3  mx-auto" src={angularimg} alt="Card" />
-        <div className="px-6 py-4 text-center">
-          <Link className="font-bold text-xl border rounded-xl px-4">
-            Angulaire
-          </Link>
-        </div>
-      </div>
-      <div className="rounded-lg overflow-hidden shadow-md m-4">
-        <img className="w-1/3  mx-auto" src={nextimg} alt="Card" />
-        <div className="px-6 py-4 text-center">
-          <Link className="font-bold text-xl border rounded-xl px-4">
-            Nextjs
-          </Link>
-        </div>
-      </div>
-
-      
-      
+      </div> */}
     </div>
   </div>
   )
