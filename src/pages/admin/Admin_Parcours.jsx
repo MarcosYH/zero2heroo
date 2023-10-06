@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import imgPath from '../../assets/dashboard/course_image_4.png'
-import axios from "axios";
+// import axios from "axios";
 
 
 export default function AdminParcours() {
@@ -10,16 +10,23 @@ export default function AdminParcours() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://38.242.136.15:3000/viewAllPath");
-        setPaths(response.data);
-        console.log(response.data);
+        const response = await fetch("http://38.242.136.15:3000/viewAllPath");
+
+        if (!response.ok) {
+          throw new Error("Réponse du serveur non valide");
+        }
+
+        const data = await response.json();
+        setPaths(data);
+        console.log(data);
       } catch (error) {
         console.error("Erreur lors de la récupération des parcours:", error);
       }
     };
 
-    fetchData(); // Appel de la fonction fetchData lors du montage du composant
-  }, []); // Le tableau vide en tant que deuxième argument signifie que cela ne s'exécutera qu'une fois, équivalent à componentDidMount()
+    fetchData();
+  }, []);
+
 
   return (
     <div className='p-10 px-20 lg:ml-64'>
