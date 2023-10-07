@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { registerUser } from "../../services/auth.service.js";
+
 
 export default function Register() {
   const [lastname, setLastname] = useState("");
@@ -21,68 +22,63 @@ export default function Register() {
   };
 
   // function handlesubmit for register
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (lastname && firstname && email && password) {
       setError(""); // Reset error if all fields are filled in
       setEmailError("");
-
+  
       if (!isEmailValid(email)) {
         // Invalid e-mail address, display error
         setEmailError("Veuillez entrer une adresse e-mail valide");
         return;
       }
-
+  
       if (password.length < 8) {
         // Password too short, display error
         setPasswordError("Le mot de passe doit contenir au moins 8 caractères");
         return;
       }
       setLoading(true);
-
-      // Perform the necessary actions (send data, etc.)
-      const configuration = {
-        method: "post",
-        url: "https://auth-api-adk2.onrender.com/register",
-        data: {
+  
+      try {
+        const response = await registerUser({
           lastname,
           firstname,
           email,
           password,
-        },
-      };
-
-      axios(configuration)
-        .then((result) => {
-          setRegister(true);
-          setLoading(false);
-          window.location.href = "/login";
-          console.log(result);
-          setLastname("");
-          setFirstname("");
-          setEmail("");
-          setPassword("");
-          setError("");
-          setError2("");
-          setPasswordError("");
-        })
-        .catch((error) => {
-          console.log(error);
-          setLoading(false);
-
-          if (error.response && error.response.status === 404) {
-            setError2("Veuillez entrer un nom ou email valide");
-          } else {
-            setError2(
-              "Une erreur s'est produite. Veuillez réessayer plus tard."
-            );
-          }
         });
+  
+        setRegister(true);
+        setLoading(false);
+        window.location.href = "/login";
+        console.log(response);
+        setLastname("");
+        setFirstname("");
+        setEmail("");
+        setPassword("");
+        setError("");
+        setError2("");
+        setPasswordError("");
+      } catch (error) {
+        console.error(error);
+  
+        if (error.response && error.response.status === 404) {
+          setError2("Veuillez entrer un nom ou un email valide");
+        } else {
+          setError2(
+            "Une erreur s'est produite. Veuillez revoir vos informations. Email déjà utilisé !"
+          );
+        }
+  
+        setLoading(false);
+      }
     } else {
       setError("Veuillez remplir tous les champs");
     }
   };
+  
 
   return (
     <div>
@@ -97,7 +93,7 @@ export default function Register() {
                   </h1>
                   <p className="register_heading_description text-center">
                     Vous avez déjà un compte ?{" "}
-                    <Link to="login.html">Connexion</Link>
+                    <Link to="/login">Connexion</Link>
                   </p>
                   <form action="#">
                     <div className="register_form signup_login_form">
@@ -131,7 +127,7 @@ export default function Register() {
                           required
                         />
                         {emailError && (
-                          <p className="text-red-600 text-center">
+                          <p className="text-danger text-center">
                             {emailError}
                           </p>
                         )}
@@ -147,16 +143,16 @@ export default function Register() {
                           required
                         />
                         {passwordError && (
-                          <p className="text-red-600 text-center">
+                          <p className="text-danger text-center">
                             {passwordError}
                           </p>
                         )}
                       </div>
                       {error && (
-                        <p className="text-red-600 text-center">{error}</p>
+                        <p className="text-danger text-center">{error}</p>
                       )}
                       {error2 && (
-                        <p className="text-red-600 text-center">{error2}</p>
+                        <p className="text-danger text-center">{error2}</p>
                       )}
                       
                       <button
@@ -164,10 +160,10 @@ export default function Register() {
                         className="btn btn_dark mb-5 py-3 text-center d-flex justify-center items-center"
                         onClick={(e) => handleSubmit(e)}
                       >
-                        <div className=" mr-2">S'inscrire</div>
+                        <div className=" mr-2 fw-bold">S'inscrire</div>
                         {loading && (
                           <div className="spinner-border  text-light" role="status">
-                          <span class="visually-hidden">Loading...</span>
+                          <span className="visually-hidden">Loading...</span>
                         </div>
                         )}
                       </button>
@@ -184,7 +180,7 @@ export default function Register() {
                           Votre inscription a été effectuée avec succès
                         </p>
                       ) : (
-                        <p className=" text-red-600 text-center my-2"></p>
+                        <p className=" text-danger text-center my-2"></p>
                       )}
                     </div>
                   </form>
