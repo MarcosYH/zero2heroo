@@ -21,7 +21,7 @@ export default function AddLearnPath() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://38.242.136.15:3000/createPath",
+        "https://backend-zro2hero.vercel.app/parcours/create",
         formData
       );
       console.log("Réponse du serveur:", response.data);

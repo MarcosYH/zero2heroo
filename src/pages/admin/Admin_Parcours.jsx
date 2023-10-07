@@ -10,7 +10,7 @@ export default function AdminParcours() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://38.242.136.15:3000/viewAllPath");
+        const response = await fetch("https://backend-zro2hero.vercel.app/parcours/viewAllPath");
 
         if (!response.ok) {
           throw new Error("Réponse du serveur non valide");
