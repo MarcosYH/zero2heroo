@@ -27,6 +27,7 @@ import TeacherLabDetail from "./pages/teacher/TeacherLabDetail";
 import ParcoursEmpty from "./components/general/ParcoursEmpty";
 import AdminAddLabs from "./pages/admin/AdminAddLabs";
 import AdminLabDetail from "./pages/admin/AdminLabDetail";
+import ParcourDetail from "./components/admin/ParcourDetail";
 
 const MainContent = () => {
   return (
@@ -75,7 +76,8 @@ const RoutesConfig = () => {
         <Route path="/admin/labs" element={<AdminLabs />} />
         <Route path="/admin/learnpathEmpty" element={<ParcoursEmpty />} />
         <Route path="/admin/addlabs" element={<AdminAddLabs />} />
-        <Route path="/admin/labdetail" element={<AdminLabDetail />} />
+        <Route path="/admin/labdetail/:id" element={<AdminLabDetail />} />
+        <Route path="/admin/learnpath/:id" element={<ParcourDetail />} />
       </Route>
 
       {/* Routes enseignant */}

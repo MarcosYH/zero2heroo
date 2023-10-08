@@ -6,6 +6,7 @@ import imgPath from '../../assets/dashboard/course_image_4.png'
 
 export default function AdminParcours() {
   const [paths, setPaths] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,15 +16,15 @@ export default function AdminParcours() {
         if (!response.ok) {
           throw new Error("Réponse du serveur non valide");
         }
-
         const data = await response.json();
         setPaths(data);
+        setIsLoading(false);
         console.log(data);
       } catch (error) {
         console.error("Erreur lors de la récupération des parcours:", error);
+        setIsLoading(true); 
       }
     };
-
     fetchData();
   }, []);
 
@@ -41,11 +42,18 @@ export default function AdminParcours() {
       </div>
       <div>
         <div className="row mt-20">
-          {paths.map((path) => (
-            <div key={path.id} className=" col col-lg-4">
+        {isLoading ? (
+          <div className="flex items-center justify-center space-x-2">
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-yellow-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-yellow-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-yellow-400"></div>
+          </div>
+        ) : (
+          paths.map((path) => (
+            <div key={path._id} className=" col col-lg-4">
               <div className="course_card style_2">
                 <div className="item_image">
-                  <Link to="/admin/learnpathEmpty">
+                  <Link to={`/admin/learnpath/${path._id}`}>
                     <img
                       src={imgPath}
                       alt="course_image_4"
@@ -63,92 +71,16 @@ export default function AdminParcours() {
                       <span>Accessible</span>
                     </li> */}
                     </ul>
-                    <p>{path.description}</p>
+                    {/* <p>{path.description}</p> */}
                   </div>
                   <h3 className="item_title">
-                    <Link to="/admin/learnpathEmpty">{path.wording}</Link>
+                    <Link to="/admin/learnpath/:id">{path.wording}</Link>
                   </h3>
                 </div>
               </div>
             </div>
-
-          ))}
-          {/* <div className="col col-lg-4">
-            <div className="course_card style_2">
-              <div className="item_image">
-                <Link to="#">
-                  <img
-                    src={imgPath}
-                    alt="course_image_4"
-                  />
-                </Link>
-              </div>
-              <div className="item_content">
-                <div className="d-flex align-items-center justify-content-between mb-3">
-                  <ul className="item_category_list unordered_list">
-                    <li>
-                      <Link to="#!">Categorie</Link>
-                    </li>
-                  </ul>
-                </div>
-                <ul className="meta_info_list unordered_list justify-content-between">
-                  <li>
-                    <i className="fas fa-chart-bar mr-3" />
-                    <span>Difficulté</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-clock" />
-                    <span>Durée</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-lock" />
-                    <span>payant</span>
-                  </li>
-                </ul>
-                <h3 className="item_title">
-                  <Link to="#">Titre du parcours</Link>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div className="col col-lg-4">
-            <div className="course_card style_2">
-              <div className="item_image">
-                <Link to="#">
-                  <img
-                    src={imgPath}
-                    alt="course_image_4"
-                  />
-                </Link>
-              </div>
-              <div className="item_content">
-                <div className="d-flex align-items-center justify-content-between mb-3">
-                  <ul className="item_category_list unordered_list">
-                    <li>
-                      <Link to="#!">Categorie</Link>
-                    </li>
-                  </ul>
-                </div>
-                <ul className="meta_info_list unordered_list justify-content-between">
-                  <li>
-                    <i className="fas fa-chart-bar mr-3" />
-                    <span>Difficulté</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-clock" />
-                    <span>Durée</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-lock" />
-                    <span>payant</span>
-                  </li>
-                </ul>
-                <h3 className="item_title">
-                  <Link to="#">Titre du parcours</Link>
-                </h3>
-              </div>
-            </div>
-          </div> */}
+          ))
+        )}
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import reactimg from '../../assets/dashboard/react.png'
-import angularimg from '../../assets/dashboard/Angular.png'
-import nextimg from '../../assets/dashboard/next.png'
+// import angularimg from '../../assets/dashboard/Angular.png'
+// import nextimg from '../../assets/dashboard/next.png'
 
 export default function TeacherLab() {
   return (

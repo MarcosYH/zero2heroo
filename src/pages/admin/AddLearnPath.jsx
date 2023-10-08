@@ -12,6 +12,7 @@ export default function AddLearnPath() {
     image: "",
     categorie: ""
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,6 +20,13 @@ export default function AddLearnPath() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Vérifiez si tous les champs sont remplis
+    if (!formData.wording || !formData.description || !formData.image || !formData.categorie) {
+      setError("Veuillez remplir tous les champs.");
+      setSuccessMessage(null);
+      return;
+    }
+
     try {
       const response = await axios.post(
         "https://backend-zro2hero.vercel.app/parcours/create",
@@ -26,6 +34,7 @@ export default function AddLearnPath() {
       );
       console.log("Réponse du serveur:", response.data);
       setSuccessMessage("Parcours créé avec succès !");
+      setError(null);
       // Réinitialise le formulaire après le succès de la requête
       setFormData({
         wording: "",
@@ -35,6 +44,7 @@ export default function AddLearnPath() {
       });
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
+      setError("Erreur lors de l'envoi du formulaire. Veuillez réessayer.");
     }
   };
 
@@ -86,6 +96,7 @@ export default function AddLearnPath() {
                       className="p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300"
                       required
                     >
+                      <option value="">Sélectionnez une catégorie</option>
                       <option value="web">web</option>
                       <option value="devops">devops</option>
                       <option value="mobile">mobile</option>
@@ -125,6 +136,8 @@ export default function AddLearnPath() {
                       required
                     />
                   </div>
+                  {error && <div className='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded'>{error}</div>}
+
                   <div className=' text-center'>
                     <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
                       Publier maintenant
