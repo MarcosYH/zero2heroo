@@ -58,7 +58,7 @@ export default function AdminLabs() {
               imgSrc = angular;
             } else if (lab.technologie === 'Next') {
               imgSrc = next;
-            } else if (lab.technologie === 'docker') {
+            } else if (lab.technologie === 'Docker') {
               imgSrc = docker;
             }
             else {

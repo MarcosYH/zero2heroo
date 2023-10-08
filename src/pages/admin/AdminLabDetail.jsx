@@ -42,7 +42,7 @@ export default function AdminLabDetail() {
             {labs.technologie === 'React' && <img src={reactimg} alt="reactimg" className='w-1/6' />}
             {labs.technologie === 'Angular' && <img src={angular} alt="angularimg" className='w-1/6' />}
             {labs.technologie === 'Next' && <img src={next} alt="nextimg" className='w-1/6' />}
-            {labs.technologie === 'docker' && <img src={docker} alt="dockerimg" className='w-1/6' />}
+            {labs.technologie === 'Docker' && <img src={docker} alt="dockerimg" className='w-1/6' />}
 
             {/* <img src={reactimg} alt="reactimg" className=' w-1/6' /> */}
 
