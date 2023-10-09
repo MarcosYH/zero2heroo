@@ -1,12 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-const users = [
-  { id: 1, nom: "Doe", prenom: "John", email: "john.doe@example.com" },
-  { id: 2, nom: "Smith", prenom: "Alice", email: "alice.smith@example.com" },
-  { id: 3, nom: "Johnson", prenom: "Bob", email: "bob.johnson@example.com" },
-  { id: 4, nom: "Williams", prenom: "Eva", email: "eva.williams@example.com" },
-];
 
 export default function User() {
 
