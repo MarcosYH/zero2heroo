@@ -105,6 +105,7 @@ export default function Register() {
                           onChange={(e) => setLastname(e.target.value)}
                           placeholder="Nom"
                           required
+                          disabled={loading}
                         />
                       </div>
                       <div className="form_item">
@@ -115,6 +116,7 @@ export default function Register() {
                           onChange={(e) => setFirstname(e.target.value)}
                           placeholder="Prénom"
                           required
+                          disabled={loading}
                         />
                       </div>
                       <div className="form_item">
@@ -125,6 +127,7 @@ export default function Register() {
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="Email"
                           required
+                          disabled={loading}
                         />
                         {emailError && (
                           <p className="text-danger text-center">
@@ -141,6 +144,7 @@ export default function Register() {
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder="Créer un mot de passe"
                           required
+                          disabled={loading}
                         />
                         {passwordError && (
                           <p className="text-danger text-center">

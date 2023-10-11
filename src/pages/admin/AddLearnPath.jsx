@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-// import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { compressImage } from '../../utils/resizeimage';
 
 export default function AddLearnPath() {
 
@@ -13,13 +12,53 @@ export default function AddLearnPath() {
     categorie: ""
   });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  //handle and convert it in base 64
+
+  const handleImage = async (e) => {
+    const file = e.target.files[0];
+    const compressedImage = await compressImage(file);
+    await setFileToBase(compressedImage)
+  };
+
+  const setFileToBase = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setFormData((prevState) => ({
+          ...prevState,
+          image: reader.result,
+        }));
+        resolve();
+      };
+    });
+  };
+
+  useEffect(() => {
+    let timeout;
+    if (successMessage) {
+      // Afficher le toast de succès pendant 3 secondes (3000 millisecondes)
+      timeout = setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    }
+
+    // Nettoyer le timeout si le composant est démonté ou si le message de succès change
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [successMessage]);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     // Vérifiez si tous les champs sont remplis
     if (!formData.wording || !formData.description || !formData.image || !formData.categorie) {
       setError("Veuillez remplir tous les champs.");
@@ -35,6 +74,7 @@ export default function AddLearnPath() {
       console.log("Réponse du serveur:", response.data);
       setSuccessMessage("Parcours créé avec succès !");
       setError(null);
+      setLoading(false);
       // Réinitialise le formulaire après le succès de la requête
       setFormData({
         wording: "",
@@ -44,7 +84,8 @@ export default function AddLearnPath() {
       });
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
-      setError("Erreur lors de l'envoi du formulaire. Veuillez réessayer.");
+      setError("Erreur lors de l'envoi du formulaire. Veuillez choisir une bonne image .");
+      setLoading(false);
     }
   };
 
@@ -61,7 +102,7 @@ export default function AddLearnPath() {
               <div className=" w-full ">
                 {/* Affiche le message de succès s'il est défini */}
                 {successMessage && (
-                  <div className="mt-4 bg-green-200 border border-green-400 text-green-700 px-4 py-2 rounded">
+                  <div className="fixed bottom-0 right-0 p-4 bg-green-500 text-white rounded-tl-lg shadow-lg">
                     {successMessage}
                   </div>
                 )}
@@ -79,6 +120,7 @@ export default function AddLearnPath() {
                       onChange={handleChange}
                       className="mt-1 p-2 w-full border rounded-lg"
                       required
+                      disabled={loading}
                     />
                   </div>
 
@@ -95,6 +137,7 @@ export default function AddLearnPath() {
                       onChange={handleChange}
                       className="p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300"
                       required
+                      disabled={loading}
                     >
                       <option value="">Sélectionnez une catégorie</option>
                       <option value="web">web</option>
@@ -112,13 +155,14 @@ export default function AddLearnPath() {
                     <input
                       type="file"
                       id="image"
-                      // type="text"
                       name="image"
-                      value={formData.image}
-                      onChange={handleChange}
+                      accept=".jpg, .jpeg, .png"
+                      onChange={handleImage}
                       className="w-full border rounded-sm bg-white p-2 mt-1 overflow-hidden cursor-pointer block"
-                      accept="image/*"
+                      required
+                      disabled={loading}
                     />
+                    <img className=" w-1/2 mx-auto" src={formData.image} alt="" />
                   </div>
 
                   <div className="container mx-auto my-8">
@@ -134,13 +178,22 @@ export default function AddLearnPath() {
                       placeholder="Écrivez quelque chose..."
                       className="bg-white p-2 border border-gray-300 rounded w-full h-32"
                       required
+                      disabled={loading}
                     />
                   </div>
                   {error && <div className='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded'>{error}</div>}
 
-                  <div className=' text-center'>
-                    <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
-                      Publier maintenant
+                  <div className=' flex justify-center'>
+                    <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold text-xl flex">
+                      <div className=' mr-2'>Publier </div>
+                      {loading && (
+                        <div
+                          className="spinner-border  text-light"
+                          role="status"
+                        >
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      )}
                     </button>
                   </div>
                 </form>

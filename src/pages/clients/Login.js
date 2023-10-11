@@ -36,7 +36,7 @@ export default function Login() {
         setLoading(false);
       } catch (error) {
         console.error(error);
-        setError("Une erreur s'est produite lors de la connexion.");
+        setError("Une erreur s'est produite lors de la connexion. verrifier vos identifiant");
         setLoading(false);
       }
     } else {
@@ -101,6 +101,7 @@ export default function Login() {
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="Email"
                           required
+                          disabled={loading}
                         />
                       </div>
                       <div className="form_item">
@@ -110,6 +111,7 @@ export default function Login() {
                           onChange={(e) => setPassword(e.target.value)}
                           required
                           placeholder="**********"
+                          disabled={loading}
                         />
                       </div>
                       {error && <div className="text-danger">{error}</div>}

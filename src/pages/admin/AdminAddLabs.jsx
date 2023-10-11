@@ -18,9 +18,11 @@ export default function AdminAddLabs() {
     type_access: ""
   });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     // Vérifiez si tous les champs sont remplis
     if (!formData.wording || !formData.description || !formData.technologie || !formData.type || !formData.level || !formData.duration || !formData.auteur || !formData.score || !formData.image || !formData.services || !formData.type_access) {
       setError("Veuillez remplir tous les champs.");
@@ -48,9 +50,11 @@ export default function AdminAddLabs() {
       console.log("Lab créé avec succès !");
       setSuccessMessage("Lab créé avec succès !");
       setError(null);
+      setLoading(false);
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
       setError("Erreur lors de l'envoi du formulaire. Veuillez réessayer.");
+      setLoading(false);
     }
   };
   const handleChange = (e) => {
@@ -65,8 +69,9 @@ export default function AdminAddLabs() {
           <h4 className=" text-3xl font-bold">Création de nouveau lab</h4>
 
         </div>
+        {/* Affiche le message de succès s'il est défini */}
         {successMessage && (
-          <div className="mt-4 bg-green-200 border border-green-400 text-green-700 px-4 py-2 rounded">
+          <div className="fixed bottom-0 right-0 p-4 bg-green-500 text-white rounded-tl-lg shadow-lg">
             {successMessage}
           </div>
         )}
@@ -88,6 +93,7 @@ export default function AdminAddLabs() {
                       onChange={handleChange}
                       className="mt-1 p-2 w-full border rounded-lg"
                       required
+                      disabled={loading}
                     />
                   </div>
                   <div>
@@ -103,6 +109,7 @@ export default function AdminAddLabs() {
                           onChange={handleChange}
                           className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
                           required
+                          disabled={loading}
                         >
                           <option value="">Entrer une Difficulté</option>
                           <option value="Débutant">Débutant</option>
@@ -121,6 +128,7 @@ export default function AdminAddLabs() {
                           onChange={handleChange}
                           className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
                           required
+                          disabled={loading}
                         >
                           <option value="">Techno</option>
                           <option value="React">React</option>
@@ -141,6 +149,7 @@ export default function AdminAddLabs() {
                           onChange={handleChange}
                           className="p-2 px-4 mr-2 rounded-lg border border-gray-300"
                           required
+                          disabled={loading}
                         >
                           <option value="">Type de lab</option>
                           <option value="env_dockerfile">environnement dockerfile</option>
@@ -163,6 +172,7 @@ export default function AdminAddLabs() {
                           onChange={handleChange}
                           className="mt-1 p-2 w-full border rounded-lg"
                           required
+                          disabled={loading}
                         />
 
                       </div>
@@ -180,6 +190,7 @@ export default function AdminAddLabs() {
                           placeholder="web:80; sql:3306"
                           className="mt-1 p-2 w-full border rounded-lg"
                           required
+                          disabled={loading}
                         />
 
                       </div>
@@ -196,6 +207,7 @@ export default function AdminAddLabs() {
                           onChange={handleChange}
                           className='p-2 px-10 mr-6 rounded-lg border border-gray-300'
                           required
+                          disabled={loading}
                         >
                           <option value="">Type_access</option>
                           <option value="web">ssh</option>
@@ -217,6 +229,7 @@ export default function AdminAddLabs() {
                       placeholder="Écrivez quelque chose..."
                       className="bg-white p-2 border border-gray-300 rounded w-full h-32"
                       required
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -239,6 +252,7 @@ export default function AdminAddLabs() {
                     className="overflow-hidden mt-1 p-2  border rounded-lg"
                     placeholder="Mr"
                     required
+                    disabled={loading}
                   />
                 </div>
                 <div className="my-4 text-center">
@@ -255,6 +269,7 @@ export default function AdminAddLabs() {
                     min="0"
                     placeholder="15min"
                     required
+                    disabled={loading}
                   />
                 </div>
 
@@ -271,6 +286,7 @@ export default function AdminAddLabs() {
                     className="overflow-hidden mt-1 p-2  border rounded-lg"
                     placeholder="Score"
                     required
+                    disabled={loading}
                   />
                 </div>
 
@@ -279,9 +295,17 @@ export default function AdminAddLabs() {
           </div>
         </div>
         {error && <div className='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded'>{error}</div>}
-        <div className=' text-center mt-5'>
-          <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold">
-            Publier maintenant
+        <div className=' flex justify-center'>
+          <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold text-xl flex">
+            <div className=' mr-2'>Publier </div>
+            {loading && (
+              <div
+                className="spinner-border  text-light"
+                role="status"
+              >
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            )}
           </button>
         </div>
       </form>

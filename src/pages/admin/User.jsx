@@ -7,6 +7,7 @@ export default function User() {
     <div className='p-10 px-20 lg:ml-64'>
       <div className=' flex justify-between'>
         <h4 className=' text-3xl'> Utilisateurs</h4>
+        
         <Link
           to="#!"
           className='btn btn-primary pt-3 px-3 pb-3'>
