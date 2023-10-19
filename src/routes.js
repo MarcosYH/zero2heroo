@@ -28,6 +28,8 @@ import ParcoursEmpty from "./components/general/ParcoursEmpty";
 import AdminAddLabs from "./pages/admin/AdminAddLabs";
 import AdminLabDetail from "./pages/admin/AdminLabDetail";
 import ParcourDetail from "./components/admin/ParcourDetail";
+import Labs from "./pages/clients/Labs";
+import Verify from "./pages/clients/Verify";
 
 const MainContent = () => {
   return (
@@ -52,10 +54,12 @@ const RoutesConfig = () => {
         <Route index element={<Home />} />
         <Route path="/course" element={<Cours />} />
         <Route path="/path" element={<Parcours />} />
+        <Route path="/labs" element={<Labs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/testimoni" element={<Temoignage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/checkemail" element={<Verify />} />
       </Route>
       <Route path="*" element={<Error />} />
 

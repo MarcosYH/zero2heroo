@@ -6,10 +6,6 @@ export const compressImage = (file) => {
       const img = new Image();
       img.src = event.target.result;
       img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        // Redimensionnez l'image ici (dans cet exemple, redimensionnez à une largeur maximale de 800 pixels)
         const maxWidth = 800;
         const maxHeight = 600;
         let width = img.width;
@@ -27,17 +23,22 @@ export const compressImage = (file) => {
           }
         }
 
+        const canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;
 
+        const ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, width, height);
 
-        // Convertir l'image redimensionnée en Blob
+        // Obtenir le type d'image du fichier d'origine
+        const fileType = file.type || "image/jpeg";
+
+        // Convertir le canvas en blob avec le type d'image correct
         canvas.toBlob(
           (blob) => {
-            resolve(blob);
+            resolve(new File([blob], file.name, { type: fileType }));
           },
-          "image/jpeg",
+          fileType,
           0.8
         );
       };

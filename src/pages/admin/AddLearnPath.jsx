@@ -22,7 +22,9 @@ export default function AddLearnPath() {
 
   const handleImage = async (e) => {
     const file = e.target.files[0];
+    console.log(file)
     const compressedImage = await compressImage(file);
+    console.log(compressedImage)
     await setFileToBase(compressedImage)
   };
 
@@ -68,7 +70,7 @@ export default function AddLearnPath() {
 
     try {
       const response = await axios.post(
-        "https://backend-zro2hero.vercel.app/parcours/create",
+        "http://localhost:3000/parcours/create",
         formData
       );
       console.log("Réponse du serveur:", response.data);

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { registerUser } from "../../services/auth.service.js";
 
-
 export default function Register() {
-  const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
   const [register, setRegister] = useState(false);
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
@@ -24,38 +24,41 @@ export default function Register() {
   // function handlesubmit for register
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    if (lastname && firstname && email && password) {
+
+    if (name && tel && email && password && cpassword) {
       setError(""); // Reset error if all fields are filled in
       setEmailError("");
-  
+
       if (!isEmailValid(email)) {
         // Invalid e-mail address, display error
         setEmailError("Veuillez entrer une adresse e-mail valide");
         return;
       }
-  
+
       if (password.length < 8) {
         // Password too short, display error
         setPasswordError("Le mot de passe doit contenir au moins 8 caractères");
         return;
       }
+
       setLoading(true);
-  
+
       try {
         const response = await registerUser({
-          lastname,
-          firstname,
+          name,
           email,
           password,
+          cpassword,
+          tel,
         });
-  
+
         setRegister(true);
         setLoading(false);
-        window.location.href = "/login";
+        window.location.href = "/checkemail";
         console.log(response);
-        setLastname("");
-        setFirstname("");
+        setName("");
+        setCpassword("");
+        setTel("");
         setEmail("");
         setPassword("");
         setError("");
@@ -63,7 +66,7 @@ export default function Register() {
         setPasswordError("");
       } catch (error) {
         console.error(error);
-  
+
         if (error.response && error.response.status === 404) {
           setError2("Veuillez entrer un nom ou un email valide");
         } else {
@@ -71,14 +74,13 @@ export default function Register() {
             "Une erreur s'est produite. Veuillez revoir vos informations. Email déjà utilisé !"
           );
         }
-  
+
         setLoading(false);
       }
     } else {
       setError("Veuillez remplir tous les champs");
     }
   };
-  
 
   return (
     <div>
@@ -100,25 +102,27 @@ export default function Register() {
                       <div className="form_item">
                         <input
                           type="text"
-                          name="lastname"
-                          value={lastname}
-                          onChange={(e) => setLastname(e.target.value)}
-                          placeholder="Nom"
+                          name="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Nom & Prénom"
                           required
                           disabled={loading}
                         />
                       </div>
                       <div className="form_item">
                         <input
-                          type="text"
-                          name="firstname"
-                          value={firstname}
-                          onChange={(e) => setFirstname(e.target.value)}
-                          placeholder="Prénom"
+                          id="telephone"
+                          type="number"
+                          name="telephone"
+                          value={tel}
+                          onChange={(e) => setTel(e.target.value)}
+                          placeholder="Entrer votre numero de télephone"
                           required
                           disabled={loading}
                         />
                       </div>
+                      
                       <div className="form_item">
                         <input
                           type="email"
@@ -152,13 +156,31 @@ export default function Register() {
                           </p>
                         )}
                       </div>
+                      <div className="form_item">
+                        <input
+                          id="confirmpasswordregister"
+                          type="password"
+                          name="confirmepassword"
+                          value={cpassword}
+                          onChange={(e) => setCpassword(e.target.value)}
+                          placeholder="Confirmer votre mot de passe"
+                          required
+                          disabled={loading}
+                        />
+                        {passwordError && (
+                          <p className="text-danger text-center">
+                            {passwordError}
+                          </p>
+                        )}
+                      </div>
+              
                       {error && (
                         <p className="text-danger text-center">{error}</p>
                       )}
                       {error2 && (
                         <p className="text-danger text-center">{error2}</p>
                       )}
-                      
+
                       <button
                         type="submit"
                         className="btn btn_dark mb-5 py-3 text-center d-flex justify-center items-center"
@@ -166,9 +188,12 @@ export default function Register() {
                       >
                         <div className=" mr-2 fw-bold">S'inscrire</div>
                         {loading && (
-                          <div className="spinner-border  text-light" role="status">
-                          <span className="visually-hidden">Loading...</span>
-                        </div>
+                          <div
+                            className="spinner-border  text-light"
+                            role="status"
+                          >
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
                         )}
                       </button>
                       {/* <p className="text-center">Ou se connecter avec</p>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiBaseUrl = 'https://backend-zro2hero.vercel.app/';
+const apiBaseUrl = 'zero2hero.emes.bj:5000';
 
 const axiosInstance = axios.create({
   baseURL: apiBaseUrl,

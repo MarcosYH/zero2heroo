@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import ReactQuill from 'react-quill'
 import axios from "axios";
 
@@ -19,6 +19,20 @@ export default function AdminAddLabs() {
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let timeout;
+    if (successMessage) {
+      // Afficher le toast de succès pendant 3 secondes (3000 millisecondes)
+      timeout = setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    }
+    // Nettoyer le timeout si le composant est démonté ou si le message de succès change
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [successMessage]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

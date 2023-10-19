@@ -9,3 +9,14 @@
 a:hover{
 color: #212b36;
 }
+
+/* styles.css */
+.image-cont2 {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Animation de 0.3 seconde avec une transition fluide */
+}
+
+.image-cont2:hover {
+  transform: rotate(5deg); /* Incliner l'image de 5 degrés quand le curseur est dessus */
+}

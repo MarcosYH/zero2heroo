@@ -17,7 +17,7 @@ export default function Parcours() {
                       </li>
                       <li>Parcours</li>
                     </ul>
-                    <h1 className="page_title">Nos Parcours</h1>
+                    <h1 className="page_title animate__animated animate__fadeIn">Nos Parcours</h1>
                     <p className="page_description">
                       Egestas sed tempus urna et pharetra. Leo integer malesuada
                       nunc vel. Libero id faucibus nisl tincidunt eget nullam
