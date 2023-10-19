@@ -12,9 +12,9 @@ export default function Header() {
       >
         <div className="container">
           <div className="row align-items-center">
-            <div className="col col-lg-6">
+            <div className="col col-lg-6 animate__animated animate__backInLeft">
               <h1 className="banner_big_title">
-                Devenez un hero en securité web !
+                Devenez un héro en securité web !
               </h1>
               <p className="banner_description">
                 Testez vos connaissances en sécurité Web avec nos environnements
@@ -65,6 +65,7 @@ export default function Header() {
                     <img
                       src="assets/images/banner/hero_banner_img_2.png"
                       alt="hero_banner_img_2"
+                      className="animate__animated animate__backInRight"
                     />
                   </div>
                 </div>
@@ -73,6 +74,7 @@ export default function Header() {
                     <img
                       src="assets/images/banner/hero_banner_img_3.png"
                       alt="hero_banner_img_3"
+                      className="animate__animated animate__backInUp"
                     />
                   </div>
                 </div>
