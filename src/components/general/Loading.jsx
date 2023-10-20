@@ -11,12 +11,12 @@ export default function Loading() {
               Zero2hero
             </div>
             <div class="wrapper">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="shadow"></div>
-              <div class="shadow"></div>
-              <div class="shadow"></div>
+              <div class="circleload"></div>
+              <div class="circleload"></div>
+              <div class="circleload"></div>
+              <div class="shadowload"></div>
+              <div class="shadowload"></div>
+              <div class="shadowload"></div>
             </div>
           </div>
         </div>
