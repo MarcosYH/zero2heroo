@@ -27,7 +27,7 @@ export default function Footer() {
               </div>
               <div className="col col-lg-7">
                 <div className="row">
-                  <div class="col-lg-6">
+                  <div className="col-lg-6">
                     <div className="footer_widget">
                       <h3 className="footer_widget_title">Liens</h3>
                       <ul className="page_list unordered_list_block">
@@ -59,7 +59,7 @@ export default function Footer() {
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div className="col-lg-6">
                     <div className="footer_widget">
                       <h3 className="footer_widget_title">À propos</h3>
                       <ul className="page_list unordered_list_block">

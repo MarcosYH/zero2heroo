@@ -70,7 +70,7 @@ export default function AddLearnPath() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/parcours/create",
+        "https://backend-zro2hero.vercel.app/parcours/create",
         formData
       );
       console.log("Réponse du serveur:", response.data);
