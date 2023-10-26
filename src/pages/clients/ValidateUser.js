@@ -15,7 +15,7 @@ export default function ValidateUser() {
     const activateAccount = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/validateUser/${token}`
+          `https://backend-zro2hero.vercel.app/validateUser/${token}`
         );
         const data = await response.json();
 
