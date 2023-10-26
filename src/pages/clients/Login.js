@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/auth.service";
 import Cookies from "js-cookie";
-
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState("");
+  const [isActivated, setIsActivated] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -23,61 +27,71 @@ export default function Login() {
           email,
           password,
         });
+        const { isActivated, token } = response;
 
-        // Si la connexion réussit, stockez le jeton dans les cookies
-        if (response.token) {
-          // Utilisez la fonction setCookie() pour stocker le jeton
-          Cookies.set("token", response.token, { expires: 1 }); // "expires" est en jours, donc 1 jour = 24 heures
-          navigate("/student");
+        if (isActivated) {
+          Cookies.set("TOKEN", token, { expires: 1 });
+          const decodedToken = jwt_decode(token);
+          const { userRole } = decodedToken;
+          // Mettre à jour l'état pour indiquer que l'utilisateur est connecté et son rôle
+          setIsLoggedIn(true);
+          setUserRole(userRole);
+          setIsActivated(true);
+          console.log(isLoggedIn, userRole, isActivated)
         } else {
-          setError("Email ou mot de passe incorrect.");
+          console.log("Votre inscription n'est pas encore validée.");
+          setIsLoggedIn(false);
+          setIsActivated(false);
+          setError("Erreur lors de la connexion. Inscription invalidée.");
         }
-
-        setLoading(false);
       } catch (error) {
-        console.error(error);
-        setError("Une erreur s'est produite lors de la connexion. verrifier vos identifiant");
+        console.error("Erreur lors de la connexion :", error);
+  
+        if (error.response) {
+          const { status } = error.response;
+  
+          if (status === 404) {
+            setError("Email non trouvé");
+          } else if (status === 403) {
+            setError("Accès non autorisé. Veuillez réessayer.");
+          } else if (status === 400) {
+            setError("Mots de passe incorrecte.");
+          } else if (status === 500) {
+            setError("Erreur de serveur interne");
+          } else {
+            setError("Erreur inattendue lors de la connexion");
+          }
+        } else {
+          setError("Erreur inattendue lors de la connexion");
+        }
+        setIsLoggedIn(false);
+        setIsActivated(false);
+      } finally {
         setLoading(false);
       }
     } else {
       setError("Veuillez entrer votre email et votre mot de passe.");
     }
   };
- 
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-
-  //   if (email && password) {
-  //     setLoading(true);
-  //     setError("");
-
-  //     try {
-  //       const response = await loginUser({
-  //         email,
-  //         password,
-  //       });
-
-  //       // Si la connexion réussit, redirigez l'utilisateur vers la route protégée /student
-  //       if (response.token) {
-  //         localStorage.setItem("token", response.token);
-  //         const token = localStorage.getItem('token');
-  //         console.log(token);
-  //         navigate("/student");
-  //       } else {
-  //         setError("Email ou mot de passe incorrect.");
-  //       }
-
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //       setError("Une erreur s'est produite lors de la connexion.");
-  //       setLoading(false);
-  //     }
-  //   } else {
-  //     setError("Veuillez entrer votre email et votre mot de passe.");
-  //   }
-  // };
+  useEffect(() => {
+    if (isLoggedIn && isActivated) {
+      if (userRole === "student") {
+        navigate("/student");
+      } else if (userRole === "admin") {
+        navigate("/admin");
+      } else if (userRole === "teacher") {
+        navigate("/teacher");
+      } else {
+        console.log("Rôle non reconnu.");
+        navigate("/login");
+      }
+    } else if (isLoggedIn && !isActivated) {
+      console.log("Votre compte n'est pas activé.");
+      // Redirection vers la page d'activation du compte si nécessaire
+      navigate("/register");
+    }
+  }, [isLoggedIn, isActivated, userRole, navigate]);
 
   return (
     <div>
@@ -89,8 +103,7 @@ export default function Login() {
                 <div className="col col-lg-6">
                   <h1 className="register_heading text-center">Connexion</h1>
                   <p className="register_heading_description text-center">
-                    Veuillez saisir votre nom d'utilisateur ou votre adresse
-                    email et votre mot de passe
+                    Veuillez saisir votre adresse email et votre mot de passe
                   </p>
                   <form onSubmit={handleLogin}>
                     <div className="register_form signup_login_form">
@@ -144,15 +157,11 @@ export default function Login() {
                           </div>
                         )}
                       </button>
-                      {/* <button type="submit" className="btn btn_dark mb-5">
-                        <span>
-                          <small>Se connecter</small>
-                          <small>Se connecter</small>
-                        </span>
-                      </button> */}
                       <p className="mb-0 text-center">
                         vous n'avez pas de compte ?{" "}
-                        <Link to="/register">S'inscrire ici</Link>
+                        <Link to="/register" className=" text-danger">
+                          S'inscrire ici
+                        </Link>
                       </p>
                     </div>
                   </form>

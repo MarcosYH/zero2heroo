@@ -8,6 +8,7 @@ export const loginUser = async (userData) => {
       throw error;
     }
   };
+
 export const registerUser = async (userData) => {
     try {
       const response = await Post('/register', userData);

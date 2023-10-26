@@ -32,6 +32,9 @@ import Labs from "./pages/clients/Labs";
 import Verify from "./pages/clients/Verify";
 import ValidateUser from "./pages/clients/ValidateUser";
 
+import ProtectedRoute from "./middleware/ProtectedRoute.js";
+import Unauthorized from "./pages/clients/Unauthorized";
+
 const MainContent = () => {
   return (
     <div>
@@ -62,17 +65,19 @@ const RoutesConfig = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/checkemail" element={<Verify />} />
         <Route path="/validateUser/:token" element={<ValidateUser />} />
-
       </Route>
+      <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<Error />} />
 
       {/* Routes admins */}
       <Route
         path="/admin"
         element={
-          <LayoutAdmin>
-            <MainContent />
-          </LayoutAdmin>
+          <ProtectedRoute role="admin">
+            <LayoutAdmin>
+              <MainContent />
+            </LayoutAdmin>
+          </ProtectedRoute>
         }
       >
         <Route index element={<Dashboard />} />
@@ -91,9 +96,11 @@ const RoutesConfig = () => {
       <Route
         path="/teacher"
         element={
+          <ProtectedRoute role="teacher">
           <LayoutTeacher>
             <MainContent />
           </LayoutTeacher>
+          </ProtectedRoute>
         }
       >
         <Route index element={<TeacherDashboard />} />
@@ -109,9 +116,11 @@ const RoutesConfig = () => {
       <Route
         path="/student"
         element={
+          <ProtectedRoute role="student">
           <LayoutStudent>
             <MainContent />
           </LayoutStudent>
+          </ProtectedRoute>
         }
       >
         <Route index element={<StudentDashboard />} />
