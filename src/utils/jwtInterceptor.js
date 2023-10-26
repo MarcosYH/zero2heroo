@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const apiBaseUrl = 'zero2hero.emes.bj:5000';
+const apiBaseUrl = 'http://localhost:3000';
 
 const axiosInstance = axios.create({
   baseURL: apiBaseUrl,
-  timeout: 5000,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },

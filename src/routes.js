@@ -30,6 +30,7 @@ import AdminLabDetail from "./pages/admin/AdminLabDetail";
 import ParcourDetail from "./components/admin/ParcourDetail";
 import Labs from "./pages/clients/Labs";
 import Verify from "./pages/clients/Verify";
+import ValidateUser from "./pages/clients/ValidateUser";
 
 const MainContent = () => {
   return (
@@ -60,6 +61,8 @@ const RoutesConfig = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/checkemail" element={<Verify />} />
+        <Route path="/validateUser/:token" element={<ValidateUser />} />
+
       </Route>
       <Route path="*" element={<Error />} />
 

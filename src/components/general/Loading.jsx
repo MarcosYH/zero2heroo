@@ -10,13 +10,13 @@ export default function Loading() {
             <div data-glitch="Zero2hero" className="glitch">
               Zero2hero
             </div>
-            <div class="wrapper">
-              <div class="circleload"></div>
-              <div class="circleload"></div>
-              <div class="circleload"></div>
-              <div class="shadowload"></div>
-              <div class="shadowload"></div>
-              <div class="shadowload"></div>
+            <div className="wrapper">
+              <div className="circleload"></div>
+              <div className="circleload"></div>
+              <div className="circleload"></div>
+              <div className="shadowload"></div>
+              <div className="shadowload"></div>
+              <div className="shadowload"></div>
             </div>
           </div>
         </div>
