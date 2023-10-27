@@ -13,37 +13,29 @@ export default function ValidateUser() {
   
 
   useEffect(() => {
-    const activateAccount = async () => {
-      try {
-        if (token) {
-          const response = await fetch(
-            `https://backend-zro2hero.vercel.app/validateUser/${token}`
-          );
-          const data = await response.json();
-
+    if (token) {
+      fetch(`https://backend-zro2hero.vercel.app/validateUser/${token}`)
+        .then(response => {
           if (response.status === 200) {
             setIsValidated(true);
             setMessage("Votre compte a été activé avec succès!");
           } else {
-            setMessage(
-              data.error ||
-                "Une erreur s'est produite lors de l'activation du compte."
-            );
+            throw new Error("Une erreur s'est produite lors de l'activation du compte.");
           }
-        } else {
-          setIsLoading(true);
-        }
-      } catch (error) {
-        console.error(error);
-        setMessage("Lien de validation invalide ou expiré");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    activateAccount();
+        })
+        .catch(error => {
+          console.error(error);
+          setMessage("Une erreur s'est produite veuillez réactualiser la page.");
+          // setMessage("Lien de validation invalide ou expiré");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } else {
+      setIsLoading(true);
+    }
   }, [token]);
-
+  
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
