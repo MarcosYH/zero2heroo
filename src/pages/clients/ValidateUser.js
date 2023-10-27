@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import validateUser from "../../assets/validateUser.jpg";
-import notValidatedImage from "../../assets/reniesUser.png";
+// import notValidatedImage from "../../assets/reniesUser.png";
 import { useParams } from "react-router-dom";
 import "../../styles/style.css";
 import { Link } from "react-router-dom";
@@ -10,23 +10,28 @@ export default function ValidateUser() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const { token } = useParams();
+  
 
   useEffect(() => {
     const activateAccount = async () => {
       try {
-        const response = await fetch(
-          `https://backend-zro2hero.vercel.app/validateUser/${token}`
-        );
-        const data = await response.json();
-
-        if (response.status === 200) {
-          setIsValidated(true);
-          setMessage("Votre compte a été activé avec succès!");
-        } else {
-          setMessage(
-            data.error ||
-              "Une erreur s'est produite lors de l'activation du compte."
+        if (token) {
+          const response = await fetch(
+            `https://backend-zro2hero.vercel.app/validateUser/${token}`
           );
+          const data = await response.json();
+
+          if (response.status === 200) {
+            setIsValidated(true);
+            setMessage("Votre compte a été activé avec succès!");
+          } else {
+            setMessage(
+              data.error ||
+                "Une erreur s'est produite lors de l'activation du compte."
+            );
+          }
+        } else {
+          setIsLoading(true);
         }
       } catch (error) {
         console.error(error);
@@ -66,16 +71,8 @@ export default function ValidateUser() {
               alt="validateUser"
               className="imgvalidate mx-auto"
             />
-          ) : isLoading ? (
-            <div className="spinner-border text-white" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
           ) : (
-            <img
-              src={notValidatedImage}
-              alt="notValidatedImage"
-              className="imgvalidate mx-auto"
-            />
+            ""
           )}
         </div>
       </div>
