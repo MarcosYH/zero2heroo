@@ -2,9 +2,15 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from "../../assets/logoemes1.svg";
 import "../../styles/Sidebar.css";
+import Cookies from 'js-cookie';
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const handleLogout = () => {
+    Cookies.remove('TOKEN');
+    window.location.href = "/";
+  };
 
   const toggleSidebar = () => {
     setShowSidebar((prevState) => !prevState);
@@ -221,7 +227,7 @@ export default function Sidebar() {
             {/* Déconnexion */}
             <Link
               className="hover:bg-[#e8ebee] mx-2 flex dash_link p-2 rounded-md"
-
+              onClick={() => handleLogout()}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +241,7 @@ export default function Sidebar() {
                   stroke="#667085"
                 />
               </svg>
-              <button className="block px-3 text-md font-medium " >
+              <button className="block px-3 text-md font-medium " onClick={() => handleLogout()}>
                 Déconnexion
               </button>
             </Link>
