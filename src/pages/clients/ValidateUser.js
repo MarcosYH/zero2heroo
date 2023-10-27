@@ -3,7 +3,6 @@ import validateUser from "../../assets/validateUser.jpg";
 import { useParams } from "react-router-dom";
 import "../../styles/style.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 export default function ValidateUser() {
   const [isValidated, setIsValidated] = useState(false);
@@ -14,7 +13,7 @@ export default function ValidateUser() {
 
   useEffect(() => {
     if (token) {
-      fetch(`http://localhost:3000/validateUser/${token}`)
+      fetch(`https://backend-zro2hero.vercel.app/validateUser/${token}`)
         .then(response => {
           if (response.status === 200) {
             setIsValidated(true);
