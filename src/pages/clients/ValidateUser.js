@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import validateUser from "../../assets/validateUser.jpg";
-// import notValidatedImage from "../../assets/reniesUser.png";
 import { useParams } from "react-router-dom";
 import "../../styles/style.css";
 import { Link } from "react-router-dom";
@@ -8,13 +7,14 @@ import { Link } from "react-router-dom";
 export default function ValidateUser() {
   const [isValidated, setIsValidated] = useState(false);
   const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { token } = useParams();
   
 
   useEffect(() => {
     if (token) {
-      fetch(`https://backend-zro2hero.vercel.app/validateUser/${token}`)
+      setIsLoading(true);
+      fetch(`http://localhost:3000/validateUser/${token}`)
         .then(response => {
           if (response.status === 200) {
             setIsValidated(true);
@@ -25,14 +25,13 @@ export default function ValidateUser() {
         })
         .catch(error => {
           console.error(error);
-          setMessage("Une erreur s'est produite veuillez réactualiser la page.");
-          // setMessage("Lien de validation invalide ou expiré");
+          setMessage("Lien de validation invalide ou expiré");
         })
         .finally(() => {
           setIsLoading(false);
         });
     } else {
-      setIsLoading(true);
+      setMessage("lien validation invalide");
     }
   }, [token]);
   
