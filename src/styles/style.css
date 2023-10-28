@@ -1,3 +1,44 @@
-.imgvalidate{
-width: 50%;
+.imgvalidate {
+  width: 50%;
+}
+
+.country {
+  position: relative;
+  top: 0;
+  left: 0;
+  outline: none;
+  width: auto !important;
+  border-color: #1f1d0d !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+  border-right: none !important;
+  background: #f5f5f5;
+  color: #333 !important;
+}
+.telephone {
+  border-left: none !important;
+  border-radius: 0rem 0.5rem 0.5rem 0rem !important;
+}
+.password-strength-progress.red {
+  background-color: red !important;
+}
+.progress {
+  display: flex;
+  height: 0.5rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+.togglePasswordVisibility {
+  width: 2rem !important;
+  top: 2rem;
+  cursor: pointer;
+}
+.advice {
+  font-size: 12px !important;
+  color: red;
+}
+.advice2 {
+  font-size: 12px !important;
+  color: green;
 }
