@@ -180,7 +180,7 @@ export default function Register() {
                   </h1>
                   <p className="register_heading_description text-center">
                     Vous avez déjà un compte ?{" "}
-                    <Link to="/login">Connexion</Link>
+                    <Link to="/login" className="text-primary">Connexion</Link>
                   </p>
                   <form action="#">
                     <div className="register_form signup_login_form">
@@ -201,6 +201,7 @@ export default function Register() {
                           className="country"
                           value={countryCode}
                           onChange={handleCountryCodeChange}
+                          disabled={loading}
                         >
                           <option value="229">+229</option>
                           <option value="228">+228</option>

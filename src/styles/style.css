@@ -30,7 +30,7 @@
   border-radius: 0.25rem;
 }
 .togglePasswordVisibility {
-  width: 2rem !important;
+  width: 1.5rem !important;
   top: 2rem;
   cursor: pointer;
 }
@@ -41,4 +41,13 @@
 .advice2 {
   font-size: 12px !important;
   color: green;
+}
+
+@media (max-width: 768px) {
+  .size {
+    font-size: 20px;
+  }
+  .imgvalidate {
+    width: 90%;
+  }
 }

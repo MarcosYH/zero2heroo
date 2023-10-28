@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './tailwind.css';
 import "animate.css";
+import '../src/styles/style.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

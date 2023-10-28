@@ -182,7 +182,7 @@ export default function Login() {
                           </div>
                         </div>
                         <div className="col col-6">
-                          <div className="forget_password text-end">
+                          <div className="forget_password text-end text-danger ">
                             <Link to="#!">Mot de passe oublier ?</Link>
                           </div>
                         </div>
@@ -203,7 +203,7 @@ export default function Login() {
                       </button>
                       <p className="mb-0 text-center">
                         vous n'avez pas de compte ?{" "}
-                        <Link to="/register" className=" text-danger">
+                        <Link to="/register" className=" text-primary">
                           S'inscrire ici
                         </Link>
                       </p>

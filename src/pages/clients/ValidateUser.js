@@ -42,7 +42,7 @@ export default function ValidateUser() {
   return (
     <div>
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4 text-gray-500 my-10">
+        <h1 className="text-3xl font-bold mb-4 text-gray-500 my-10 size">
           {isLoading ? (
             <div className="spinner-border text-warning" role="status">
               <span className="visually-hidden">Loading...</span>

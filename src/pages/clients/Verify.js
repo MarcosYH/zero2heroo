@@ -1,10 +1,11 @@
 import React from 'react'
 import check_email from "../../assets/check_email.png";
+
 export default function Verify() {
   return (
     <div>
       <div className=" text-center">
-      <h1 className="text-3xl font-bold mb-4 text-gray-500 my-10">
+      <h1 className="text-3xl font-bold mb-4 text-gray-500 my-10 size">
         Veuillez vérifier votre boite mail pour accéder <br /> au lien de
         validation de votre inscription.
         si vous n'avez pas reçu de mail, <br/> veuillez vérifier vos spam.
