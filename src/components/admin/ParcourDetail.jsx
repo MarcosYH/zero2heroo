@@ -16,9 +16,9 @@ const ParcourDetail = ({ match }) => {
             .catch(error => {
                 console.error("Erreur lors de la récupération des détails du parcours:", error);
             });
-    }, [id]); // Utilisez id dans le tableau de dépendances
+    }, [id]);
 
-    // Si le parcours n'est pas encore chargé, affichez un message de chargement
+
     if (!parcours) {
         return (
             <div className="flex items-center justify-center space-x-2">

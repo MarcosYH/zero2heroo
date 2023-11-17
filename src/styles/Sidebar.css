@@ -6,17 +6,38 @@
   font-weight: bold;
   stroke: #212b36;
 }
-a:hover{
-color: #212b36;
+a:hover {
+  color: #212b36;
 }
 
 /* styles.css */
 .image-cont2 {
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease; /* Animation de 0.3 seconde avec une transition fluide */
+  transition: transform 0.3s ease;
 }
 
 .image-cont2:hover {
-  transform: rotate(5deg); /* Incliner l'image de 5 degrés quand le curseur est dessus */
+  transform: rotate(5deg);
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon {
+  cursor: pointer;
+}
+
+.info-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 5px;
+  z-index: 100;
 }

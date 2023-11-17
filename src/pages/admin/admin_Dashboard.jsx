@@ -1,7 +1,13 @@
 import React from 'react'
 // import StatsCard from '../../components/admin/StatsCard'
+import teacher from '../../assets/dashboard/teacher.png'
+import parcours from '../../assets/dashboard/Parcours.png'
+import labs from '../../assets/dashboard/labs.png'
+import cours from '../../assets/dashboard/cours.png'
+import student from '../../assets/dashboard/student.png'
 import Traficcard from '../../components/admin/Traficcard'
 import StatsCard from '../../components/admin/StatsCard'
+
 
 export default function Dashboard() {
   return (
@@ -12,7 +18,7 @@ export default function Dashboard() {
             <h4 className=' text-xl font-medium'>Nombre d’enseignants</h4>
             <div className=" flex justify-between items-center pt-3">
               <h2 className="text-4xl font-bold">0</h2>
-              {/* <img src={icon_drapau} className="" alt="icon_drapau"/> */}
+              <img src={teacher} className=" w-10" alt="icon_drapau"/>
             </div>
           </div>
           <div className="bg-white p-4 py-8 rounded-lg shadow-md">
@@ -20,28 +26,28 @@ export default function Dashboard() {
 
             <div className=" flex justify-between items-center pt-3">
               <h2 className="text-4xl font-bold">0</h2>
-              {/* <img src={icon_point} className="" alt="icon_drapau"/> */}
+              <img src={student} className=" w-10" alt="icon_drapau"/>
             </div>
           </div>
           <div className="bg-white p-4 py-8 rounded-lg shadow-md">
             <h4 className=' text-xl font-medium'>Nombre de parcours</h4>
             <div className=" flex justify-between items-center pt-3">
               <h2 className="text-4xl font-bold">0</h2>
-              {/* <img src={icon_trophy} className="" alt="icon_drapau"/> */}
+              <img src={parcours} className="w-10" alt="icon_drapau"/>
             </div>
           </div>
          <div className="bg-white p-4 py-8 rounded-lg shadow-md">
             <h4 className=' text-xl font-medium'>Nombre de cours</h4>
             <div className=" flex justify-between items-center pt-3">
               <h2 className="text-4xl font-bold">0</h2>
-              {/* <img src={icon_trophy} className="" alt="icon_drapau"/> */}
+              <img src={cours} className="w-10" alt="icon_drapau"/>
             </div>
           </div>
           <div className="bg-white p-4 py-8 rounded-lg shadow-md">
             <h4 className=' text-xl font-medium'>Nombre de labs</h4>
             <div className=" flex justify-between items-center pt-3">
               <h2 className="text-4xl font-bold">0</h2>
-              {/* <img src={icon_certification} className="" alt="icon_drapau"/> */}
+              <img src={labs} className="w-10" alt="icon_drapau"/>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ export default function Header() {
                 suivant nos cours en securité pour être un héro du domaine.
               </p>
               <p>
-                Vous aurez à travailler dans des laboratoires d'environnements
+                Vous aurez à travailler dans des laboratoires d'environnements <br/>
                 virtuels sur des technologies telles que :
               </p>
               <ul className="tags_list unordered_list">

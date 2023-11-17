@@ -1,44 +1,91 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Profile from "../../assets/dashboard/Profil.png";
 import "../../styles/Sidebar.css";
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
+  const [showprofil, setShowProfil] = useState(false);
+
+  const toggleProfil = () => {
+    setShowProfil(!showprofil);
+  };
   return (
     <div>
-       <div className="p-4 lg:ml-64 bg-white">
-      <nav>
-        <div className=" p-4 flex justify-end border-b-2">
-          <div className=" mx-auto">
-            {/* <div className="hover:bg-[#e8ebee] mx-2 bg-[#F0F0F0] flex p-2 rounded-md items-center mr-20">
-              <Link className="block px-4 text-sm font-medium" to=" #">
-                Running labs
-              </Link>
-              <div>
+      <div className="p-4 lg:ml-64 bg-white">
+        <nav>
+          <div className=" p-4 justify-between lg:flex items-center border-b-2">
+            <div className="flex space-x-1">
+              <input
+                type="text"
+                className="block w-80 pl-4 pr-10 py-2 text-black bg-white border rounded-full focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                placeholder="Recherches un parcours"
+              />
+              <button className="px-4 text-white bg-yellow-400 rounded-full ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
+                  className="w-5 h-5"
                   fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
                 >
                   <path
-                    d="M1.19632 0L0 0.479345V14.509L1.19632 15L15 7.98519V7.01481L1.19632 0ZM1.53374 13.4217V1.57833L13.1902 7.50585L1.53374 13.4217Z"
-                    fill="black"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
+              </button>
+            </div>
+            <Link to="/admin/addlearnpath" className="hover:bg-[#e8ebee] mx-2 bg-[#F0F0F0] flex p-2 rounded-md items-center">
+              <div className="block px-2 text-sm font-medium">
+                Créer un parcours"
               </div>
-            </div> */}
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12L17 12M12 17L12 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </Link>
+            <div className='relative'>
+              <Link
+                className='flex items-center'
+                onClick={toggleProfil}
+              >
+                <img
+                  src={Profile}
+                  alt='Profile'
+                  className="w-12 rounded-full mr-1"
+                />
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='10'
+                  height='6'
+                  viewBox='0 0 10 6'
+                  fill='none'
+                  className={`arrow-icon ${showprofil ? 'rotate' : ''}`}
+                >
+                  <path
+                    d='M9 1L5 5L1 1'
+                    stroke='black'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </Link>
+
+              {showprofil && (
+                <div className='info-dropdown'>
+                  <p className='m-0'><span className=' font-bold'>Nom :</span> John Doe</p>
+                  <p><span className='font-bold'>Email :</span>  john.doe@example.com</p>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="flex items-center">
-             
-              <span className="text-gray-600 text-sm mr-2"> test-Admin </span>
-            
-            <img src={Profile} alt="Profile" className="w-8 h-8 rounded-full" />
-          </div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
     </div>
   )
 }
