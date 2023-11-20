@@ -120,11 +120,12 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+          
           <div className=' lg:w-1/2 ml-3'>
             <Traficcard />
           </div>
         </div>
-
+        
         <div>
           <StatsCard />
         </div>

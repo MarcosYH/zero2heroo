@@ -1,5 +1,5 @@
 import ApexCharts from 'apexcharts';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const generateRandomColor = () => {
   const letters = '0123456789ABCDEF';
@@ -10,14 +10,32 @@ const generateRandomColor = () => {
   return color;
 };
 
-const generateRandomData = () => {
-  return Math.floor(Math.random() * 10) + 1; // Génère un nombre aléatoire entre 1 et 10 pour représenter le nombre de cours suivis par jour
+const generateRandomData = (length) => {
+  return Array.from({ length }, () => Math.floor(Math.random() * 10) + 1);
 };
 
 const StatsCard = () => {
+  const [view, setView] = useState('week');
+
   useEffect(() => {
     const colors = generateRandomColor();
-    const data = Array.from({ length: 7 }, () => generateRandomData()); // Génère des données aléatoires pour 7 jours de la semaine
+    let categories, titleText, data;
+
+    if (view === 'week') {
+      categories = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+      titleText = 'Nombre de cours suivis (par semaine)';
+      data = generateRandomData(7);
+    } else if (view === 'month') {
+      // Ajoutez des données pour chaque jour du mois
+      categories = Array.from({ length: 30 }, (_, i) => `Jour ${i + 1}`);
+      titleText = 'Nombre de cours suivis (par mois)';
+      data = generateRandomData(30);
+    } else if (view === 'year') {
+      // Ajoutez des données pour chaque mois de l'année
+      categories = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
+      titleText = 'Nombre de cours suivis (par année)';
+      data = generateRandomData(12);
+    }
 
     const chartOptions = {
       chart: {
@@ -36,11 +54,11 @@ const StatsCard = () => {
       },
       colors: [colors],
       xaxis: {
-        categories: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+        categories: categories,
       },
       yaxis: {
         title: {
-          text: 'Nombre de cours suivie',
+          text: titleText,
         },
       },
     };
@@ -56,16 +74,21 @@ const StatsCard = () => {
     });
     chart.render();
 
-    // Cleanup on component unmount
     return () => {
       chart.destroy();
     };
-  }, []); // Empty dependency array means this effect will run once after the initial render
+  }, [view]);
 
-  return <div id="column-chart"></div>;
+  return (
+    <div>
+      <div id="column-chart"></div>
+      <div className=' text-center'>
+        <button className=' p-2 bg-gray-400 rounded-md text-white mr-4' onClick={() => setView('week')}>Semaine</button>
+        <button className=' p-2 bg-gray-400 rounded-md text-white mr-4' onClick={() => setView('month')}>Mois</button>
+        <button className=' p-2 bg-gray-400 rounded-md text-white mr-4' onClick={() => setView('year')}>Année</button>
+      </div>
+    </div>
+  );
 };
 
 export default StatsCard;
-
-
- 
