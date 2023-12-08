@@ -43,10 +43,7 @@ export default function IntroVideo() {
                     />
                   </div>
                   <h3 className="item_title mb-0">
-                    Apprendre la
-                    <span className="d-block">
-                      Programmation défensive, vulnérabilités réelles.
-                    </span>
+                    Apprendre la  programmation défensive avec des vulnérabilités réelles.
                   </h3>
                 </div>
                 <p className="mb-0">
@@ -66,16 +63,12 @@ export default function IntroVideo() {
                     />
                   </div>
                   <h3 className="item_title mb-0">
-                    Exercez vous avec des
-                    <span className="d-block">
-                      Tests réels et environnements transparents
-                    </span>
+                    Exercez vous avec des tests réels et environnements transparents
                   </h3>
                 </div>
                 <p className="mb-0">
                   Les laboratoires se déroulent dans de véritables
-                  environnements de développement créés en quelques secondes et
-                  accessibles par le biais d'un navigateur web.
+                  environnements de développement accessibles par le biais d'un navigateur web.
                 </p>
               </div>
             </div>
@@ -89,22 +82,19 @@ export default function IntroVideo() {
                     />
                   </div>
                   <h3 className="item_title mb-0">
-                    Pas de longs
-                    <span className="d-block">
-                      Cours ennuyeux sur le codage sécurisé
-                    </span>
+                    Pas de longs cours ennuyeux sur le codage sécurisé
                   </h3>
                 </div>
                 <p className="mb-0">
                   Les questionnaires, les diapositives et les vidéos sont
                   inadéquats - c'est pourquoi des vulnérabilités vieilles de 20
-                  ans existent toujours.{" "}
+                  ans existent toujours.
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </section>{" "}
+      </section>
     </div>
   );
 }

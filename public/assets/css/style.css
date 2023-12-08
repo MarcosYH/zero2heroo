@@ -182,7 +182,7 @@ h6 {
   color: #1f1d0d;
   font-family: "Barlow", sans-serif;
 }
-h3{
+h3 {
   font-size: 28px !important;
 }
 
@@ -191,19 +191,19 @@ hr {
   margin: 25px 0;
   background-color: #d2d2d2;
 }
-p{
+p {
   margin-bottom: 1rem !important;
 }
 input[type="number"] {
   overflow: hidden !important;
 }
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-input[type=number] {
-    -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 .fa {
   font-family: "Font Awesome 5 Brands";
@@ -450,7 +450,7 @@ input[type=number] {
   background-color: #f7ff62;
 }
 .btn_primary:hover {
-  color: #1f1d0d ;
+  color: #1f1d0d;
   -webkit-box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
   box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
 }
@@ -1338,20 +1338,19 @@ blockquote p {
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
 }
-.labTechno{
+.labTechno {
   margin-bottom: 100px;
 }
-.labTechno img{
+.labTechno img {
   cursor: pointer;
   border-color: #ffffff transparent;
-  transition: border-color 0.3s; 
+  transition: border-color 0.3s;
 }
 .labTechno img:hover {
   border-radius: 20px;
   border: 4px solid #ffd32b;
-  transform: scale(1.1);  
+  transform: scale(1.1);
 }
- 
 
 /* 2.15 - Social Icons - End
 ================================================== */
@@ -2060,7 +2059,9 @@ blockquote p {
 }
 .course_card:hover {
   z-index: 1;
-  transform: scale(1.07);
+  border-style: inset;
+  border-right: 8px solid #000;
+  border-bottom: 8px solid #000;
 }
 .course_card .item_image {
   margin-bottom: 23px;
@@ -2653,8 +2654,8 @@ blockquote p {
   position: absolute;
   text-shadow: 2px -2px 0 #ffc107;
 }
-.testimoni .row{
-  margin-bottom:40px;
+.testimoni .row {
+  margin-bottom: 40px;
 }
 .testimonial_item_2 {
   display: -webkit-box;
@@ -2730,9 +2731,9 @@ blockquote p {
   font-size: 14px;
   line-height: 20px;
 }
-.testimonial_content .profil{
+.testimonial_content .profil {
   width: 10%;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 /* 3.7 - Testimonial - End
@@ -3768,12 +3769,12 @@ blockquote p {
 ================================================== */
 /* 5.3 - 404 Page - Start
 ================================================== */
- 
- .error_image {
+
+.error_image {
   max-width: 670px;
   margin: auto auto 20px;
 }
- .error_title {
+.error_title {
   font-size: 60px;
   line-height: 66px;
   margin-bottom: 20px;
@@ -4071,7 +4072,6 @@ Responsive For Mobile & Tablet Devices
   .register_form {
     padding: 40px;
   }
-  
 }
 /* Media Screen 1024px - End
 ================================================== */

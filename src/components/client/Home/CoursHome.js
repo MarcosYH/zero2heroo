@@ -24,7 +24,7 @@ export default function CoursHome() {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col col-lg-4">
               <div className="course_card style_2">
                 <div className="item_image">
@@ -51,10 +51,6 @@ export default function CoursHome() {
                     <li>
                       <i className="fas fa-clock" />
                       <span>Durée</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-unlock" />
-                      <span>Gratuit</span>
                     </li>
                   </ul>
                   <h3 className="item_title">
@@ -90,10 +86,6 @@ export default function CoursHome() {
                       <i className="fas fa-clock" />
                       <span>Durée</span>
                     </li>
-                    <li>
-                    <i className="fas fa-lock" />
-                      <span>payant</span>
-                    </li>
                   </ul>
                   <h3 className="item_title">
                     <Link to="/course" onClick={scrollToTop}>Titre du cours</Link>
@@ -127,10 +119,6 @@ export default function CoursHome() {
                     <li>
                       <i className="fas fa-clock" />
                       <span>Durée</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-lock" />
-                      <span>payant</span>
                     </li>
                   </ul>
                   <h3 className="item_title">
