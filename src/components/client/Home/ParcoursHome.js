@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { scrollToTop  } from "../../../utils/scrollToTop"
+import React from "react";
+import { Link } from "react-router-dom";
+import { scrollToTop } from "../../../utils/scrollToTop";
 export default function ParcoursHome() {
   return (
     <div>
-       <section className="courses_section section_space_lg">
+      <section className="courses_section section_space_lg">
         <div className="container">
           <div className="section_heading">
             <div className="row align-items-center">
@@ -13,7 +13,11 @@ export default function ParcoursHome() {
               </div>
               <div className="col col-md-6 d-none d-lg-flex justify-content-end">
                 <div className="btn_wrap p-0">
-                  <Link className="btn border_dark" to="/path" onClick={scrollToTop }>
+                  <Link
+                    className="btn border_dark"
+                    to="/path"
+                    onClick={scrollToTop}
+                  >
                     <span>
                       <small>Explorer les parcours</small>
                       <small>Explorer les parcours</small>
@@ -27,7 +31,7 @@ export default function ParcoursHome() {
             <div className="col col-lg-4">
               <div className="course_card style_2">
                 <div className="item_image">
-                  <Link to="/path" onClick={scrollToTop }>
+                  <Link to="/path" onClick={scrollToTop}>
                     <img
                       src="assets/images/course/course_image_4.png"
                       alt="course_image_4"
@@ -51,13 +55,11 @@ export default function ParcoursHome() {
                       <i className="fas fa-clock" />
                       <span>Durée</span>
                     </li>
-                    <li>
-                      <i className="fas fa-unlock" />
-                      <span>Gratuit</span>
-                    </li>
                   </ul>
                   <h3 className="item_title">
-                    <Link to="/path" onClick={scrollToTop } >Titre du parcours</Link>
+                    <Link to="/path" onClick={scrollToTop}>
+                      Titre du parcours
+                    </Link>
                   </h3>
                 </div>
               </div>
@@ -65,7 +67,7 @@ export default function ParcoursHome() {
             <div className="col col-lg-4">
               <div className="course_card style_2">
                 <div className="item_image">
-                  <Link to="/path" onClick={scrollToTop }>
+                  <Link to="/path" onClick={scrollToTop}>
                     <img
                       src="assets/images/course/course_image_4.png"
                       alt="course_image_4"
@@ -89,13 +91,11 @@ export default function ParcoursHome() {
                       <i className="fas fa-clock" />
                       <span>Durée</span>
                     </li>
-                    <li>
-                      <i className="fas fa-lock" />
-                      <span>payant</span>
-                    </li>
                   </ul>
                   <h3 className="item_title">
-                    <Link to="/path" onClick={scrollToTop }>Titre du parcours</Link>
+                    <Link to="/path" onClick={scrollToTop}>
+                      Titre du parcours
+                    </Link>
                   </h3>
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default function ParcoursHome() {
             <div className="col col-lg-4">
               <div className="course_card style_2">
                 <div className="item_image">
-                  <Link to="/path" onClick={scrollToTop }>
+                  <Link to="/path" onClick={scrollToTop}>
                     <img
                       src="assets/images/course/course_image_4.png"
                       alt="course_image_4"
@@ -127,13 +127,11 @@ export default function ParcoursHome() {
                       <i className="fas fa-clock" />
                       <span>Durée</span>
                     </li>
-                    <li>
-                      <i className="fas fa-lock" />
-                      <span>payant</span>
-                    </li>
                   </ul>
                   <h3 className="item_title">
-                    <Link to="/path" onClick={scrollToTop }>Titre du parcours</Link>
+                    <Link to="/path" onClick={scrollToTop}>
+                      Titre du parcours
+                    </Link>
                   </h3>
                 </div>
               </div>
@@ -142,5 +140,5 @@ export default function ParcoursHome() {
         </div>
       </section>
     </div>
-  )
+  );
 }
