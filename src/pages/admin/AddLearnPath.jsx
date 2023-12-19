@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { compressImage } from '../../utils/resizeimage';
+import {compressImage} from '../../utils/resizeimage';
 
 export default function AddLearnPath() {
 
@@ -9,13 +9,16 @@ export default function AddLearnPath() {
     wording: "",
     description: "",
     image: "",
-    categorie: ""
+    categorie: "",
+    level: "",
+    time: "",
+    timecategory: "",
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({...formData, [e.target.name]: e.target.value});
   };
 
   //handle and convert it in base 64
@@ -45,13 +48,11 @@ export default function AddLearnPath() {
   useEffect(() => {
     let timeout;
     if (successMessage) {
-      // Afficher le toast de succès pendant 3 secondes (3000 millisecondes)
+      // Affiche le toast de succès pendant 3 secondes (3000 millisecondes)
       timeout = setTimeout(() => {
         setSuccessMessage("");
       }, 3000);
     }
-
-    // Nettoyer le timeout si le composant est démonté ou si le message de succès change
     return () => {
       clearTimeout(timeout);
     };
@@ -61,8 +62,8 @@ export default function AddLearnPath() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Vérifiez si tous les champs sont remplis
-    if (!formData.wording || !formData.description || !formData.image || !formData.categorie) {
+
+    if (!formData.wording || !formData.description || !formData.image || !formData.categorie || !formData.level || !formData.time) {
       setError("Veuillez remplir tous les champs.");
       setSuccessMessage(null);
       return;
@@ -70,7 +71,7 @@ export default function AddLearnPath() {
 
     try {
       const response = await axios.post(
-        "https://backend-zro2hero.vercel.app/parcours/create",
+        "http://localhost:3000/parcours/create",
         formData
       );
       console.log("Réponse du serveur:", response.data);
@@ -82,7 +83,10 @@ export default function AddLearnPath() {
         wording: "",
         description: "",
         image: "",
-        categorie: ""
+        categorie: "",
+        level: "",
+        time: "",
+        timecategory: "",
       });
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
@@ -126,27 +130,84 @@ export default function AddLearnPath() {
                     />
                   </div>
 
-                  <div className="">
+                  <div className="md:flex">
                     {/* Catégorie */}
-                    <label htmlFor="categorie" className="block text-sm font-medium text-gray-700">
-                      Catégorie
-                    </label>
-                    <select
-                      id="categorie"
+                    <div className="mr-6 mb-3">
+                      <label htmlFor="categorie" className="block text-sm font-medium text-gray-700">
+                        Catégorie
+                      </label>
+                      <select
+                        id="categorie"
+                        type="text"
+                        name="categorie"
+                        value={formData.categorie}
+                        onChange={handleChange}
+                        className="p-2 w-full rounded-lg border border-gray-300"
+                        required
+                        disabled={loading}
+                      >
+                        <option value="">Sélectionnez une catégorie</option>
+                        <option value="web">web</option>
+                        <option value="devops">devops</option>
+                        <option value="mobile">mobile</option>
+                        <option value="securite">securite</option>
+                      </select>
+                    </div>
+
+                    {/* level */}
+                    <div className="mr-6 mb-3">
+                      <label htmlFor="categorie" className="block text-sm font-medium text-gray-700">
+                        Niveau
+                      </label>
+                      <select
+                        id="level"
+                        type="text"
+                        name="level"
+                        value={formData.level}
+                        onChange={handleChange}
+                        className="p-2  rounded-lg border border-gray-300"
+                        required
+                        disabled={loading}
+                      >
+                        <option value="">Sélectionnez un niveau</option>
+                        <option value="Debutant">Débutant</option>
+                        <option value="Intermediaire">Intermédiaire</option>
+                        <option value="Avancé">Avancé</option>
+                      </select>
+                    </div>
+
+                    {/* time */}
+                    <div className="mr-6 mb-3">
+                      <label htmlFor="categorie" className="block text-sm font-medium text-gray-700">
+                        Durée
+                      </label>
+                      <input
+                        id="time"
+                        type="number"
+                        name="time"
+                        value={formData.time}
+                        onChange={handleChange}
+                        className="p-2 rounded-l-lg border border-gray-300 border-l-0 w-1/3"
+                        required
+                        disabled={loading}
+                      />
+                      <select
+                      id="timecategory"
                       type="text"
-                      name="categorie"
-                      value={formData.categorie}
+                      name="timecategory"
+                      value={formData.timecategory}
                       onChange={handleChange}
-                      className="p-2 md:w-1/3 mr-6 rounded-lg border border-gray-300"
+                      className="p-2 rounded-r-lg border border-gray-300 border-r-0 bg-gray-50"
                       required
                       disabled={loading}
-                    >
-                      <option value="">Sélectionnez une catégorie</option>
-                      <option value="web">web</option>
-                      <option value="devops">devops</option>
-                      <option value="mobile">mobile</option>
-                      <option value="securite">securite</option>
-                    </select>
+                      >
+                        <option value="">type</option>
+                        <option value="heures">heures</option>
+                        <option value="jours">jours</option>
+                        <option value="semaines">semaines</option>
+                      </select>
+                    </div>
+
                   </div>
 
                   <div className='my-4'>
@@ -164,7 +225,7 @@ export default function AddLearnPath() {
                       required
                       disabled={loading}
                     />
-                    <img className=" w-1/2 mx-auto" src={formData.image} alt="" />
+                    <img className=" w-1/2 mx-auto" src={formData.image} alt=""/>
                   </div>
 
                   <div className="container mx-auto my-8">
@@ -183,11 +244,13 @@ export default function AddLearnPath() {
                       disabled={loading}
                     />
                   </div>
-                  {error && <div className='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded'>{error}</div>}
+                  {error &&
+                    <div className='mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded'>{error}</div>}
 
                   <div className=' flex justify-center'>
-                    <button type="submit" className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold text-xl flex">
-                      <div className=' mr-2'>Publier </div>
+                    <button type="submit"
+                            className=" bg-slate-500 mr-3 p-3 px-4 rounded-md text-white font-bold text-xl flex">
+                      <div className=' mr-2'>Publier</div>
                       {loading && (
                         <div
                           className="spinner-border  text-light"
