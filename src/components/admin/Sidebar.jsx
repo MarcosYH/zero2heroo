@@ -156,7 +156,7 @@ export default function Sidebar() {
             </Link>
             {/*  Cours-link */}
             <Link
-              to="#!"
+              to="/admin/courses"
               className="hover:bg-[#e8ebee] mx-[0.8rem] flex dash_link p-2 rounded-md"
             >
               <svg
