@@ -34,6 +34,7 @@ import ValidateUser from "./pages/clients/ValidateUser";
 
 import ProtectedRoute from "./middleware/ProtectedRoute.js";
 import Unauthorized from "./pages/clients/Unauthorized";
+import AdminCourse from "./pages/admin/AdminCourse.jsx";
 
 const MainContent = () => {
   return (
@@ -83,6 +84,7 @@ const RoutesConfig = () => {
         <Route index element={<Dashboard />} />
         <Route path="/admin/user" element={<User />} />
         <Route path="/admin/learnpath" element={<AdminParcours />} />
+        <Route path="/admin/courses" element={<AdminCourse />} />
         <Route path="/admin/addlearnpath" element={<AddLearnPath />} />
         <Route path="/admin/profil" element={<AdminProfil />} />
         <Route path="/admin/labs" element={<AdminLabs />} />
