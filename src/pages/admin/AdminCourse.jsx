@@ -7,7 +7,7 @@ export default function AdminCourse() {
     <div className='p-10 px-20 lg:ml-64'>
       <div className=' flex justify-between'>
         <h4 className=' text-3xl'>Liste des Cours créer par les enseignants</h4>
-      </div>
+      </div> 
       <div>
         <div className="row mt-20">
           <div className="col col-lg-4">
