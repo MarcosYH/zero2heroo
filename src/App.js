@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import RoutesConfig from "./routes";
 import Backtotop from "./components/client/Backtotop";
-import Loading from "./components/general/Loading";
+import Loading from "./components/general/LoadingZero2hero";
  
 
 function App() {
