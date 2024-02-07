@@ -17,7 +17,6 @@ const AdminProfil = () => {
   };
 
   const handleUpdateProfile = () => {
-    // Mettez à jour le profil de l'utilisateur ici (par exemple, en envoyant les données au backend).
     console.log('Profil mis à jour :', user);
   };
 

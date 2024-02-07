@@ -1,7 +1,70 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../../components/general/Loader";
 
 export default function Temoignage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [testimonial, setTestimonial] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:3000/temoignage/", {
+        name,
+        email,
+        message,
+      });
+      console.log("Temoignage submitted:", response.data);
+      setSubmitted(true);
+      setError("");
+      window.location.reload();
+    } catch (error) {
+      console.error(
+        "Temoignage submission failed:",
+        error.response.data.message
+      );
+      setError(error.response.data.message);
+      setSubmitted(false);
+    } finally {
+      setLoading(false);
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Add closing parenthesis here
+      try {
+        const response = await fetch("http://localhost:3000/temoignage/");
+
+        if (!response.ok) {
+          throw new Error("Réponse du serveur non valide");
+        }
+        const data = await response.json();
+        setTestimonial(data);
+        setIsLoading(false);
+        console.log(data);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des utilisateurs:",
+          error
+        );
+        setIsLoading(true);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="page_wrapper">
@@ -29,160 +92,33 @@ export default function Temoignage() {
             <div className="container">
               <div className="testimoni">
                 <div className=" row">
-                  <div className="col-lg-6 mb-3 mb-lg-0">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
-                      </div>
+                  {isLoading ? (
+                    <div className="my-4">
+                      <Loader />
                     </div>
-                  </div>
-                  <div className="col-lg-6 mb-3 mb-lg-0 ">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
+                  ) : (
+                    testimonial.map((testi, index) => (
+                      <div key={index} className="col-lg-6 mb-4">
+                        <div className="testimonial_item">
+                          <div className="testimonial_content">
+                            <img
+                              src="assets/images/testimonial/profil.png"
+                              alt="profil"
+                              className="profil"
+                            />
+                            <h3 className="testimonial_title">
+                              {testi.name} 
+                            </h3>
+                            <p>{testi.message}</p>
+                            <span className="quote_icon">
+                              <i className="fas fa-quote-right" />
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div className=" row">
-                  <div className="col-lg-6 mb-3 mb-lg-0">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 mb-3 mb-lg-0 ">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className=" row">
-                  <div className="col-lg-6 mb-3 mb-lg-0">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 mb-3 mb-lg-0 ">
-                    <div className="testimonial_item">
-                      <div className="testimonial_content">
-                        <img
-                          src="assets/images/testimonial/profil.png"
-                          alt="profil"
-                          className="profil"
-                        />
-                        <h3 className="testimonial_title">Nom Prenom</h3>
-                        <p>
-                          Elit ut aliquam purus sit amet luctus venenatis lectus
-                          magna. Sed nisi lacus sed viverra tellus in hac
-                          habitasse platea Elit ut aliquam purus sit amet luctus
-                          venenatis lectus magna. Sed nisi lacus sed viverra
-                          tellus in hac habitasse platea
-                        </p>
-                        <h4 className="testimonial_designation">
-                          Proffession:
-                        </h4>
-                        <span className="quote_icon">
-                          <i className="fas fa-quote-right" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                    ))
+                  )}
+                  
                 </div>
               </div>
             </div>
@@ -195,7 +131,7 @@ export default function Temoignage() {
                     <div className="section_heading">
                       <h3 className="heading_text">Laisser un commentaire</h3>
                     </div>
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                       <div className="row">
                         <div className="col">
                           <div className="form_item mb-0">
@@ -209,7 +145,9 @@ export default function Temoignage() {
                               id="input_message"
                               name="message"
                               placeholder="Message"
-                              defaultValue={""}
+                              value={message}
+                              onChange={(e) => setMessage(e.target.value)}
+                              required
                             />
                           </div>
                         </div>
@@ -222,6 +160,9 @@ export default function Temoignage() {
                               id="input_name"
                               type="text"
                               placeholder="Votre Nom"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
+                              required
                             />
                           </div>
                         </div>
@@ -237,25 +178,48 @@ export default function Temoignage() {
                               id="input_email"
                               type="email"
                               placeholder="Votre Email"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              required
                             />
                           </div>
                         </div>
                         <div className="col">
-                          <button type="submit" className="btn btn_dark">
-                            <span>
-                              <small>Soumettre un commentaire</small>
-                              <small>Soumettre un commentaire</small>
-                            </span>
+                          <button
+                            type="submit"
+                            className="btn btn_dark py-3 text-center d-flex justify-center items-center"
+                            disabled={loading}
+                          >
+                            <div className="mr-2 fw-bold">
+                              Soumettre un commentaire
+                            </div>
+                            {loading && (
+                              <div
+                                className="spinner-border  text-light"
+                                role="status"
+                              >
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
+                              </div>
+                            )}
                           </button>
                         </div>
                       </div>
+                      {submitted && (
+                        <p className="text-success text-center">
+                          Témoignage soumis avec succès!
+                        </p>
+                      )}
+                      {error && (
+                        <p className="text-danger text-center">{error}</p>
+                      )}
                     </form>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          
         </main>
       </div>
     </div>
