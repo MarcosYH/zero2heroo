@@ -36,7 +36,6 @@ export default function Login() {
           Cookies.set("TOKEN", token, { expires: 1 });
           const decodedToken = jwt_decode(token);
           const { userRole } = decodedToken;
-          // Mettre à jour l'état pour indiquer que l'utilisateur est connecté et son rôle
           setIsLoggedIn(true);
           setUserRole(userRole);
           setIsActivated(true);
@@ -62,10 +61,10 @@ export default function Login() {
           } else if (status === 500) {
             setError("Erreur de serveur interne");
           } else {
-            setError("Erreur inattendue lors de la connexion");
+            setError("Erreur inattendue lors de connexion");
           }
         } else {
-          setError("Erreur inattendue lors de la connexion");
+          setError("Erreur veuiller verifier votre connexion");
         }
         setIsLoggedIn(false);
         setIsActivated(false);
@@ -91,7 +90,6 @@ export default function Login() {
       }
     } else if (isLoggedIn && !isActivated) {
       console.log("Votre compte n'est pas activé.");
-      // Redirection vers la page d'activation du compte si nécessaire
       navigate("/register");
     }
   }, [isLoggedIn, isActivated, userRole, navigate]);

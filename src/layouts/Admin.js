@@ -9,7 +9,7 @@ const LayoutAdmin = ({ children }) => {
         <Sidebar /> 
         <div className="admin-content">
           <Header />  
-          {children} {/* Le contenu spécifique à chaque page d'administration */}
+          {children}
         </div>
       </div>
     );
