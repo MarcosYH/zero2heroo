@@ -71,8 +71,6 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="col col-lg-8">
-                  {/* Contact Form Section - Start
-        ================================================== */}
                   <section className=" decoration_wrap overflow-hidden">
                     <div className="container decoration_wrap">
                       <div className="row justify-content-center">
@@ -193,14 +191,10 @@ export default function Contact() {
                       </form>
                     </div>
                   </section>
-                  {/* Contact Form Section - End
-        ================================================== */}
                 </div>
               </div>
             </div>
           </section>
-          {/* Contact Section - End
-        ================================================== */}
         </main>
       </div>
     </div>
