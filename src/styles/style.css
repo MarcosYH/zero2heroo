@@ -90,7 +90,7 @@ select {
   }
 }
 
-/* The switch - the box around the slider */
+/* --------------input checkbox*/
 .switch {
   font-size: 17px;
   position: relative;
@@ -142,3 +142,4 @@ select {
  input:checked + .slider:before {
   transform: translateX(1.5em);
  }
+

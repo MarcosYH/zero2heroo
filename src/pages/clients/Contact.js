@@ -1,7 +1,46 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:3000/contact", {
+        name,
+        email,
+        phone,
+        sujet: subject,
+        message,
+      });
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSubject("");
+      setMessage("");
+
+      console.log("Message sent:", response.data);
+      setSubmitted(true);
+      setError("");
+    } catch (error) {
+      console.error("Message sending failed:", error.response.data.error);
+      setError(error.response.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <div className="page_wrapper">
@@ -83,7 +122,7 @@ export default function Contact() {
                           </div>
                         </div>
                       </div>
-                      <form action="#">
+                      <form onSubmit={handleSubmit}>
                         <div className="row justify-content-center">
                           <div className="col col-lg-12">
                             <div className="row">
@@ -99,7 +138,10 @@ export default function Contact() {
                                     id="input_name"
                                     type="text"
                                     name="name"
-                                    placeholder="Votre Name"
+                                    placeholder="Votre Nom"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
                                   />
                                 </div>
                               </div>
@@ -116,6 +158,9 @@ export default function Contact() {
                                     type="email"
                                     name="email"
                                     placeholder="Votre Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
                                   />
                                 </div>
                               </div>
@@ -130,33 +175,40 @@ export default function Contact() {
                                   <input
                                     id="input_phone"
                                     type="tel"
-                                    name="telephone"
+                                    name="phone"
                                     placeholder="Votre Numéro"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    required
                                   />
                                 </div>
                               </div>
                               <div className="col col-md-6">
                                 <div className="form_item m-0">
                                   <label
-                                    htmlFor="input_jubject"
+                                    htmlFor="input_subject"
                                     className="input_title"
                                   >
                                     Sujet
                                   </label>
-                                  <select name="subject" id="input_jubject">
-                                    <option value="subject" selected>
-                                      Choisir le sujet
+                                  <select
+                                    id="input_subject"
+                                    name="subject"
+                                    value={subject}
+                                    onChange={(e) => setSubject(e.target.value)}
+                                    required
+                                  >
+                                    <option value="">Choisir le sujet</option>
+                                    <option value="probleme_de_cours">
+                                      Problème de cours
                                     </option>
-                                    <option value="volvo">
-                                      Probleme de cours
+                                    <option value="probleme_d_inscription">
+                                      Problème d'inscription
                                     </option>
-                                    <option value="saab">
-                                      Probleme d'inscription
+                                    <option value="question_sur_zero2hero">
+                                      Question sur Zero2Hero
                                     </option>
-                                    <option value="mercedes">
-                                      Question sur zero2hero
-                                    </option>
-                                    <option value="audi">Audi</option>
+                                    <option value="autre">Autre</option>
                                   </select>
                                 </div>
                               </div>
@@ -172,17 +224,39 @@ export default function Contact() {
                                     id="input_message"
                                     name="message"
                                     placeholder="Tapez votre message..."
-                                    defaultValue={""}
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    required
                                   />
                                 </div>
+                                {submitted && (
+                                  <p className="text-success fw-bold text-center">
+                                    Merci de nous avoir envoyé votre
+                                    préoccupation, <br /> nous vous répondrons
+                                    dans moins de 24h 😊.
+                                  </p>
+                                )}
+                                {error && (
+                                  <p className="text-danger">{error}</p>
+                                )}
                                 <button
                                   type="submit"
-                                  className="btn btn_dark w-100 b-block"
+                                  className="btn btn_dark py-3 text-center d-flex justify-center items-center w-100"
+                                  disabled={loading}
                                 >
-                                  <span>
-                                    <small>Envoyez votre message</small>
-                                    <small>Envoyez votre message</small>
-                                  </span>
+                                  <div className="mr-2 fw-bold">
+                                    Envoyez votre message
+                                  </div>
+                                  {loading && (
+                                    <div
+                                      className="spinner-border  text-light"
+                                      role="status"
+                                    >
+                                      <span className="visually-hidden">
+                                        Loading...
+                                      </span>
+                                    </div>
+                                  )}
                                 </button>
                               </div>
                             </div>

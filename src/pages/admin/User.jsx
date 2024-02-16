@@ -9,12 +9,19 @@ export default function User() {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalDelUserOpen, setIsModalDelUserOpen] = useState(false);
+
   const openModal = () => {
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+  const openModalDelUser = () => {
+    setIsModalDelUserOpen(true);
+  };
+  const closeModalDelUser = () => {
+    setIsModalDelUserOpen(false);
   };
 
   useEffect(() => {
@@ -69,6 +76,18 @@ export default function User() {
     }
   };
 
+  // Fonction pour supprimer un utilisateur
+  const deleteUser = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/user/${id}`);
+      setUser(user.filter(user => user._id !== id));
+      closeModalDelUser();
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+
   return (
     <div className='p-10 px-20 lg:ml-64'>
       <div className=' flex justify-between'>
@@ -115,9 +134,9 @@ export default function User() {
                   disabled={loading}
                 >
                   <option value="">Role</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Student">Student</option>
+                  <option value="admin">Admin</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student">Student</option>
                 </select>
               </div>
               <div className="form_item clearfix flex align-items-center">
@@ -189,8 +208,8 @@ export default function User() {
                 <Loader />
               </div>
             ) : (
-              user.map((user, index) => (
-                <tr key={index} className=" border-b border-b-gray-300 hover:bg-gray-200">
+              user.map((user) => (
+                <tr key={user._id} className=" border-b border-b-gray-300 hover:bg-gray-200">
                   <td className="w-4 p-4">
                     <div className="flex items-center">
                       <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -208,7 +227,7 @@ export default function User() {
                   </td>
                   <td className="px-6 py-4">
                     {user.isActivated ? (
-                      <span className='bg-green-200 p-1 px-2 rounded-md text-green-700 font-medium'>Active</span>
+                      <span className='bg-green-200 p-1 px-2 rounded-md text-green-700 font-medium'>Actif</span>
                     ) : (
                       <span className='bg-red-200 p-1 px-2 rounded-md text-red-700 font-medium'>Inactif</span>
                     )}
@@ -217,9 +236,32 @@ export default function User() {
                     <Link to="#" className=' text-xl text-yellow-400'>
                       <i className='fas fa-edit'></i>
                     </Link>
-                    <Link to="#" className=' text-xl text-red-500'>
+
+                    <Link to="#" className=' text-xl text-red-500' onClick={openModalDelUser}>
                       <i className='fas fa-trash-alt'></i>
                     </Link>
+
+                    <Modal isOpen={isModalDelUserOpen} onClose={closeModalDelUser}>
+                      <div className='text-center'>
+                        <h2 className='text-2xl font-bold'>Suppression d'utilisateur</h2>
+                        <p className='my-4'>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+                        <div className='flex justify-center space-x-5'>
+                          <button
+                            className='btn btn-success py-2'
+                            onClick={() => deleteUser(user._id)}
+                          >
+                            Oui
+                          </button>
+                          <button
+                            className='btn btn-danger'
+                            onClick={closeModalDelUser}
+                          >
+                            Non
+                          </button>
+                        </div>
+                      </div>
+                    </Modal>
+
                   </td>
                 </tr>
               ))
