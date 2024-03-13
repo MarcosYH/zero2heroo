@@ -39,6 +39,8 @@ export default function Dashboard() {
     fetchData();
   }, []);
   console.log(teacherList);
+  // Nombre total de cours
+  const totalCourses = 4;
 
   return (
     <div>
@@ -125,7 +127,7 @@ export default function Dashboard() {
         </div>
 
         <div>
-          <StatsCard />
+          <StatsCard totalCourses={totalCourses} />
         </div>
       </div>
     </div>

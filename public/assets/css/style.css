@@ -2107,6 +2107,7 @@ blockquote p {
 }
 .course_card.style_2 .item_image > a {
   border-radius: 0;
+  height: 300px;
 }
 
 .course_card.list_layout {

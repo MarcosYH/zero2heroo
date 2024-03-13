@@ -33,7 +33,7 @@ export default function ParcoursHome() {
                 <div className="item_image">
                   <Link to="/path" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
+                      src="assets/images/course/course_image_4.jpg"
                       alt="course_image_4"
                     />
                   </Link>
@@ -69,7 +69,7 @@ export default function ParcoursHome() {
                 <div className="item_image">
                   <Link to="/path" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
+                      src="assets/images/course/course_image_5.jpg"
                       alt="course_image_4"
                     />
                   </Link>
@@ -105,7 +105,7 @@ export default function ParcoursHome() {
                 <div className="item_image">
                   <Link to="/path" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
+                      src="assets/images/course/course_image_6.jpg"
                       alt="course_image_4"
                     />
                   </Link>

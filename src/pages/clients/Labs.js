@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import reactimg from "../../assets/dashboard/react.png";
 import angularimg from "../../assets/dashboard/Angular.png";
 import nextimg from "../../assets/dashboard/next.png";
-import dockerimg from "../../assets/dashboard/docker.png";
+// import dockerimg from "../../assets/dashboard/docker.png";
 
 export default function Labs() {
   return (
@@ -25,9 +25,11 @@ export default function Labs() {
                       Nos Labs
                     </h1>
                     <p className="page_description">
-                      Egestas sed tempus urna et pharetra. Leo integer malesuada
-                      nunc vel. Libero id faucibus nisl tincidunt eget nullam
-                      non nisi. Faucibus turpis in eu mi bibendum neque egestas
+                      Ce site web vous propose une collection de labs de test
+                      pour vous aider à mettre à l'épreuve vos compétences en
+                      sécurité web. Les labs sont des environnements virtuels
+                      sécurisés qui vous permettent de tester vos connaissances
+                      et de découvrir de nouvelles vulnérabilités.
                     </p>
                   </div>
                 </div>
@@ -79,11 +81,11 @@ export default function Labs() {
                     </span>
                   </div>
                 </Link>
-                <Link
+                {/* <Link
                   to="#"
                   className="rounded-lg overflow-hidden shadow-md m-4"
                 >
-                  <img className="w-1/3  mx-auto" src={dockerimg} alt="Card" />
+                  <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
                   <div className="px-6 py-4 text-center">
                     <span
                       to="#"
@@ -92,7 +94,7 @@ export default function Labs() {
                       React
                     </span>
                   </div>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </section>

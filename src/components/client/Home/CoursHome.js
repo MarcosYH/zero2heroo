@@ -30,8 +30,8 @@ export default function CoursHome() {
                 <div className="item_image">
                   <Link to="/course" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
-                      alt="course_image_4"
+                      src="assets/images/course/course_image_1.jpg"
+                      alt="course_image_1"
                     />
                   </Link>
                 </div>
@@ -64,8 +64,8 @@ export default function CoursHome() {
                 <div className="item_image">
                   <Link to="/course" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
-                      alt="course_image_4"
+                      src="assets/images/course/course_image_2.jpg"
+                      alt="course_image_2"
                     />
                   </Link>
                 </div>
@@ -98,8 +98,8 @@ export default function CoursHome() {
                 <div className="item_image">
                   <Link to="/course" onClick={scrollToTop}>
                     <img
-                      src="assets/images/course/course_image_4.png"
-                      alt="course_image_4"
+                      src="assets/images/course/course_image_3.jpg"
+                      alt="course_image_3"
                     />
                   </Link>
                 </div>
