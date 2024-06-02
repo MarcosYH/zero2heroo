@@ -2048,14 +2048,17 @@ blockquote p {
 }
 
 .course_card {
-  overflow: hidden;
   position: relative;
-  -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  padding: 28px 28px 32px;
+  height: 100%;
   border-radius: 8px;
   background-color: #ffffff;
-  border: 2px solid #d2d2d2;
+  box-shadow: 0px 1px 1px 0px rgba(31, 29, 13, 0.2);
+  transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 2px solid #f6f6f6;
+  z-index: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .course_card:hover {
   z-index: 1;
@@ -2063,19 +2066,21 @@ blockquote p {
   border-right: 8px solid #000;
   border-bottom: 8px solid #000;
 }
-.course_card .item_image {
-  margin-bottom: 23px;
+.course_card img {
+  object-fit: cover;
 }
-.course_card .item_image > a {
-  display: block;
+
+.image-container {
+  height: 200px;
   overflow: hidden;
-  position: relative;
-  border-radius: 8px;
 }
-.course_card .item_image img {
+
+.image-container img {
+  height: 100%;
   width: 100%;
-  display: block;
+  object-fit: cover;
 }
+
 .course_card .item_price .sale_price {
   font-size: 28px;
   font-weight: 700;
