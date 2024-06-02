@@ -18,11 +18,14 @@ export default function Temoignage() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/temoignage/", {
-        name,
-        email,
-        message,
-      });
+      const response = await axios.post(
+        " https://backend-zro2hero.vercel.app/temoignage/",
+        {
+          name,
+          email,
+          message,
+        }
+      );
       console.log("Temoignage submitted:", response.data);
       setSubmitted(true);
       setError("");
@@ -44,9 +47,10 @@ export default function Temoignage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Add closing parenthesis here
       try {
-        const response = await fetch("http://localhost:3000/temoignage/");
+        const response = await fetch(
+          " https://backend-zro2hero.vercel.app/temoignage/"
+        );
 
         if (!response.ok) {
           throw new Error("Réponse du serveur non valide");
@@ -106,9 +110,7 @@ export default function Temoignage() {
                               alt="profil"
                               className="profil"
                             />
-                            <h3 className="testimonial_title">
-                              {testi.name} 
-                            </h3>
+                            <h3 className="testimonial_title">{testi.name}</h3>
                             <p>{testi.message}</p>
                             <span className="quote_icon">
                               <i className="fas fa-quote-right" />
@@ -118,7 +120,6 @@ export default function Temoignage() {
                       </div>
                     ))
                   )}
-                  
                 </div>
               </div>
             </div>
