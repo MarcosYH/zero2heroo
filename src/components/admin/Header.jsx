@@ -1,15 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Profile from "../../assets/dashboard/Profil.png";
 import "../../styles/Sidebar.css";
 import { Link } from 'react-router-dom';
+import Cookies from "universal-cookie";
+import axios from 'axios';
+const cookies = new Cookies();
 
 
 export default function Header() {
   const [showprofil, setShowProfil] = useState(false);
+  const [user, setUser] = useState(null);
 
   const toggleProfil = () => {
     setShowProfil(!showprofil);
   };
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const authToken = cookies.get("TOKEN");
+
+        if (!authToken) {
+          throw new Error("Auth token not found");
+        }
+
+        const response = await axios.get(
+          " https://backend-zro2hero.vercel.app/user-info",
+          {
+            headers: {
+              Authorization: authToken,
+            },
+            params: {
+              token: authToken,
+            },
+          }
+        );
+
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUserInfo();
+  }, []);
   return (
     <div>
       <div className="p-4 lg:ml-64 bg-white">
@@ -78,8 +111,8 @@ export default function Header() {
 
               {showprofil && (
                 <div className='info-dropdown'>
-                  <p className='m-0'><span className=' font-bold'>Nom :</span> John Doe</p>
-                  <p><span className='font-bold'>Email :</span>  john.doe@example.com</p>
+                  <p className='m-0'><span className=' font-bold'>Nom : </span>{user.name}</p>
+                  <p><span className='font-bold'>Email : </span>{user.email}</p>
                 </div>
               )}
             </div>

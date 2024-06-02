@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TypingAnimation from "../../magicui/typing-animation";
 
 export default function Header() {
   return (
@@ -14,7 +15,10 @@ export default function Header() {
           <div className="row align-items-center">
             <div className="col col-lg-6 animate__animated animate__backInLeft">
               <h1 className="banner_big_title">
-                Devenez un héro en securité web !
+                <TypingAnimation
+                  className="banner_big_title"
+                  text="Devenez un héro en securité web !"
+                />
               </h1>
               <p className="banner_description">
                 Testez vos connaissances en sécurité Web avec nos environnements
@@ -22,7 +26,8 @@ export default function Header() {
                 suivant nos cours en securité pour être un héro du domaine.
               </p>
               <p>
-                Vous aurez à travailler dans des laboratoires d'environnements <br/>
+                Vous aurez à travailler dans des laboratoires d'environnements{" "}
+                <br />
                 virtuels sur des technologies telles que :
               </p>
               <ul className="tags_list unordered_list">
