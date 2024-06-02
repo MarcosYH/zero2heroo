@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:3000/course';
+const API_URL = " https://backend-zro2hero.vercel.app/course";
 
 export const getCoursesCount = async () => {
   const response = await axios.get(`${API_URL}/count`);
