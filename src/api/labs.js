@@ -1,7 +1,6 @@
-
 import axios from "axios";
 
-const API_URL = 'http://localhost:3000/labs';
+const API_URL = " https://backend-zro2hero.vercel.app/labs";
 
 export const getLabsCount = async () => {
   const response = await axios.get(`${API_URL}/count`);
