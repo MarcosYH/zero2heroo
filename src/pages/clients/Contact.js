@@ -17,13 +17,16 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/contact", {
-        name,
-        email,
-        phone,
-        sujet: subject,
-        message,
-      });
+      const response = await axios.post(
+        " https://backend-zro2hero.vercel.app/contact",
+        {
+          name,
+          email,
+          phone,
+          sujet: subject,
+          message,
+        }
+      );
       setName("");
       setEmail("");
       setPhone("");
@@ -103,8 +106,7 @@ export default function Contact() {
                       </div>
                       <div className="item_content">
                         <h3 className="item_title">Nous joindre</h3>
-                        <p className="mb-0">31 Sunset Road, Gales Ferry, </p>
-                        <p className="mb-0">6335 United States</p>
+                        <p className="mb-0">Benin, cotnou</p>
                       </div>
                     </div>
                   </div>
