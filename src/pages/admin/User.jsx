@@ -25,9 +25,9 @@ export default function User() {
   };
 
   useEffect(() => {
-    const fetchData = async () => { // Add closing parenthesis here
+    const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/alluser");
+        const response = await fetch(" https://backend-zro2hero.vercel.app/alluser");
 
         if (!response.ok) {
           throw new Error("Réponse du serveur non valide");
@@ -60,7 +60,7 @@ export default function User() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:3000/user', formData);
+      const response = await axios.post(' https://backend-zro2hero.vercel.app/user', formData);
       console.log('User created:', response.data);
       setFormData({
         name: '',
@@ -79,7 +79,7 @@ export default function User() {
   // Fonction pour supprimer un utilisateur
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/user/${id}`);
+      await axios.delete(` https://backend-zro2hero.vercel.app/user/${id}`);
       setUser(user.filter(user => user._id !== id));
       closeModalDelUser();
     } catch (error) {
