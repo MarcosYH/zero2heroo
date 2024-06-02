@@ -3,9 +3,36 @@ import { Link } from "react-router-dom";
 import reactimg from "../../assets/dashboard/react.png";
 import angularimg from "../../assets/dashboard/Angular.png";
 import nextimg from "../../assets/dashboard/next.png";
+import { images } from "../../assets";
 // import dockerimg from "../../assets/dashboard/docker.png";
 
 export default function Labs() {
+  const linksData = [
+    {
+      to: "/login",
+      imgSrc: reactimg,
+      altText: "React Card",
+      label: "React",
+    },
+    {
+      to: "/login",
+      imgSrc: angularimg,
+      altText: "Angular Card",
+      label: "Angular",
+    },
+    {
+      to: "/login",
+      imgSrc: nextimg,
+      altText: "Next.js Card",
+      label: "Next.js",
+    },
+    {
+      to: "/login",
+      imgSrc: images.vuejs,
+      altText: "vue.js Card",
+      label: "vue.js",
+    },
+  ];
   return (
     <div>
       <div className="page_wrapper">
@@ -25,11 +52,11 @@ export default function Labs() {
                       Nos Labs
                     </h1>
                     <p className="page_description">
-                      Ce site web vous propose une collection de labs de test
-                      pour vous aider à mettre à l'épreuve vos compétences en
-                      sécurité web. Les labs sont des environnements virtuels
-                      sécurisés qui vous permettent de tester vos connaissances
-                      et de découvrir de nouvelles vulnérabilités.
+                      Nous disposons d'une collection de labs de test pour vous
+                      aider à mettre à l'épreuve vos compétences en sécurité
+                      web. Les labs sont des environnements virtuels sécurisés
+                      qui vous permettent de tester vos connaissances et de
+                      découvrir de nouvelles vulnérabilités.
                     </p>
                   </div>
                 </div>
@@ -39,62 +66,24 @@ export default function Labs() {
           <section className="courses_archive_section mb-5">
             <div className="container">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
-                <Link
-                  to="#"
-                  className="rounded-lg overflow-hidden shadow-md m-4"
-                >
-                  <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
-                  <div className="px-6 py-4 text-center">
-                    <span
-                      to="#"
-                      className="font-bold text-xl border rounded-xl px-8 py-1"
-                    >
-                      React
-                    </span>
-                  </div>
-                </Link>
-                <Link
-                  to="#"
-                  className="rounded-lg overflow-hidden shadow-md m-4"
-                >
-                  <img className="w-1/3  mx-auto" src={angularimg} alt="Card" />
-                  <div className="px-6 py-4 text-center">
-                    <span
-                      to="#"
-                      className="font-bold text-xl border rounded-xl px-8 py-1"
-                    >
-                      React
-                    </span>
-                  </div>
-                </Link>
-                <Link
-                  to="#"
-                  className="rounded-lg overflow-hidden shadow-md m-4"
-                >
-                  <img className="w-1/3  mx-auto" src={nextimg} alt="Card" />
-                  <div className="px-6 py-4 text-center">
-                    <span
-                      to="#"
-                      className="font-bold text-xl border rounded-xl px-8 py-1"
-                    >
-                      React
-                    </span>
-                  </div>
-                </Link>
-                {/* <Link
-                  to="#"
-                  className="rounded-lg overflow-hidden shadow-md m-4"
-                >
-                  <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
-                  <div className="px-6 py-4 text-center">
-                    <span
-                      to="#"
-                      className="font-bold text-xl border rounded-xl px-8 py-1"
-                    >
-                      React
-                    </span>
-                  </div>
-                </Link> */}
+                {linksData.map((link, index) => (
+                  <Link
+                    key={index}
+                    to={link.to}
+                    className="rounded-lg overflow-hidden shadow-md m-4"
+                  >
+                    <img
+                      className="w-1/3 mx-auto"
+                      src={link.imgSrc}
+                      alt={link.altText}
+                    />
+                    <div className="px-6 py-4 text-center">
+                      <span className="font-bold text-xl border rounded-xl px-8 py-1">
+                        {link.label}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>

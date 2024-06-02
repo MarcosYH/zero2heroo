@@ -11,7 +11,6 @@ import docker from '../../assets/dashboard/docker.png'
 
 export default function AdminLabs() {
 
-  // State pour stocker les données récupérées
   const [labs, setLabs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,7 +50,6 @@ export default function AdminLabs() {
         ) : (
           labs.map((lab, index) => {
             let imgSrc;
-            // Condition pour définir la source de l'image en fonction de la technologie
             if (lab.technologie === 'React') {
               imgSrc = reactimg;
             } else if (lab.technologie === 'Angular') {

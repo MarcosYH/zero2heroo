@@ -7,25 +7,25 @@ import reactimg from '../../assets/dashboard/react.png'
 export default function TeacherLab() {
   return (
     <div className='p-10 px-20 lg:ml-64'>
-    <div className=' flex justify-between'>
-      <h4 className=' text-3xl'>Labs</h4>
-      <Link
-        to="/teacher/addlabs"
-        className='btn btn-primary pt-3 px-3 pb-3'>
-        <i class="fas fa-plus mr-3"></i>
-        <span>Créer un lab</span>
-      </Link>
-    </div>
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10'>
-      <Link to="/teacher/labdetail" className="rounded-lg overflow-hidden shadow-md m-4">
-        <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
-        <div className="px-6 py-4 text-center">
-          <span to="/teacher/labdetail" className="font-bold text-xl border rounded-xl px-8 py-1">
-            React
-          </span>
-        </div>
-      </Link>
-      {/* <div className="rounded-lg overflow-hidden shadow-md m-4">
+      <div className=' flex justify-between'>
+        <h4 className=' text-3xl'>Labs</h4>
+        <Link
+          to="/teacher/addlabs"
+          className='btn btn-primary pt-3 px-3 pb-3'>
+          <i className="fas fa-plus mr-3"></i>
+          <span>Créer un lab</span>
+        </Link>
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10'>
+        <Link to="/teacher/labdetail" className="rounded-lg overflow-hidden shadow-md m-4">
+          <img className="w-1/3  mx-auto" src={reactimg} alt="Card" />
+          <div className="px-6 py-4 text-center">
+            <span to="/teacher/labdetail" className="font-bold text-xl border rounded-xl px-8 py-1">
+              React
+            </span>
+          </div>
+        </Link>
+        {/* <div className="rounded-lg overflow-hidden shadow-md m-4">
         <img className="w-1/3  mx-auto" src={angularimg} alt="Card" />
         <div className="px-6 py-4 text-center">
           <Link className="font-bold text-xl border rounded-xl px-4">
@@ -65,7 +65,7 @@ export default function TeacherLab() {
           </Link>
         </div>
       </div> */}
+      </div>
     </div>
-  </div>
   )
 }

@@ -12,7 +12,14 @@ export default function TeacherLabDetail() {
             <img src={reactimg} alt="reactimg" className=' w-1/6' />
             <h4 className=' text-3xl ml-3'>Injection Sql dans l'authentification de base</h4>
           </div>
-          <p className=' my-3'> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, libero fugiat. Maxime asperiores numquam, non consectetur, pariatur culpa blanditiis aliquam assumenda incidunt quas excepturi in molestias quod enim earum impedit!</p>
+          <p className='my-3'> Ce laboratoire vise à illustrer les dangers de l'injection
+            SQL dans les mécanismes d'authentification de base. Les participants apprendront
+            comment les attaquants peuvent exploiter les failles d'injection SQL pour contourner
+            les mécanismes d'authentification et accéder illicitement à un système. En simulant une
+            attaque d'injection SQL contre un système d'authentification de base, les utilisateurs
+            auront l'occasion de comprendre les vulnérabilités associées à ce type d'attaque et
+            d'explorer les mesures de prévention et de protection nécessaires pour les contrer.
+          </p>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10 bg-slate-100'>
             <div className=' '>
               <h4>Durée</h4>
