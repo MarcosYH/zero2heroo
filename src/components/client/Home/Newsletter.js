@@ -11,16 +11,19 @@ export default function Newsletter() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/subscribe", {
-        email,
-      });
+      const response = await axios.post(
+        " https://backend-zro2hero.vercel.app/subscribe",
+        {
+          email,
+        }
+      );
       console.log("Subscribed:", response.data);
       setSubscribed(true);
-      setError('');
+      setError("");
     } catch (error) {
       console.error("Subscription failed:", error.response.data.error);
       setError(error.response.data.error);
-      setSubscribed(false)
+      setSubscribed(false);
     } finally {
       setLoading(false);
       setEmail("");
@@ -42,7 +45,7 @@ export default function Newsletter() {
               <div className="col col-lg-6">
                 <div className="section_heading text-center">
                   <h2 className="heading_text">
-                    Entrez votre email pour suivre nos actualités.
+                    Entrez votre email pour suivre nos actualitées.
                   </h2>
                   <p className="heading_description mb-0">
                     Recevez les dernières actualités et mises à jour directement
